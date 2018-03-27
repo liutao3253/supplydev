@@ -1,0 +1,57 @@
+/*顶部开始*/
+.container,.left-nav{
+	background: #324663;
+	border-color: #324663;
+}
+.left-nav {width: 200px;}
+.left-nav #nav li {border-color: #324663;}
+.left-nav a{
+	color: #CECECE;
+}
+.logo{
+	color: #CECECE;
+	height: 100%;
+	line-height: 46px;
+	padding-left: 10px;
+}
+.logo span{font-size: 16px;}
+.layui-nav{padding: 0;}
+.layui-nav li{
+	display: inline-block;
+	line-height: 46px;
+	font-size: 10px;
+	margin-left: 10px;
+}
+.left_open{position: absolute;left: 205px;top: 50%;}
+ li.exit{
+ 	width: 50px;
+	border-left:1px solid #303D51;
+	text-align: center;
+	position: relative;
+	cursor: pointer;
+}
+.exit_text{
+  background: rgba(0, 0, 0, .5);
+  position: absolute;
+  color: #fff;
+  z-index: 10;
+  width: 40px;
+  height: 20px;
+  line-height: 20px;
+  top: 45px;
+  left: 0;right: 0;margin: auto;
+  display: none;
+}
+li.exit:hover .exit_text{display: block;}
+
+ .usermess{
+ 	color: #CECECE;
+ 	padding: 15px 0;
+ 	border: 2px solid #303D51;
+ 	border-left: 0;
+ 	border-right: 0;
+ }
+ .usermess img{
+ 	width: 40px;
+ 	margin:0 15px;
+ }

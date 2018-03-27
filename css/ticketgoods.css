@@ -1,0 +1,25 @@
+.layui-row{
+	background: #fff;
+	padding-top: 20px;
+	margin-bottom: 10px;
+}
+
+.layui-inline{
+	text-align: left;
+	margin-bottom: 20px;
+}
+
+.layui-form-select dl dd.layui-this {
+    background-color: #139AE8;
+}
+.layui-form-select dl{border-color:#139AE8;padding: 0;}
+.layui-input:hover,.layui-textarea:hover {
+    border-color: #139AE8!important
+}
+
+.layui-input:focus,.layui-textarea:focus {
+    border-color: #139AE8!important
+}
+.layui-border-box{border-top: 3px solid #139AE8;}
+.layui-table{margin:0;}
+.layui-laypage .layui-laypage-curr .layui-laypage-em {background-color: #139AE8;}
