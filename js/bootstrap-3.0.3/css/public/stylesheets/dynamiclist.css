@@ -1,0 +1,94 @@
+body {
+	margin:0;
+	padding:0;
+	overflow-x:auto;
+	font: 14px/20px "Arial","宋体" !important;
+}
+.row{
+	margin:0;
+}
+.col-xs-1,.col-xs-2,.col-xs-3,.col-xs-4,.col-xs-5,.col-xs-6,.col-xs-7,.col-xs-8,.col-xs-9,.col-xs-10,.col-xs-11,.col-xs-12{
+	padding-left:6px;
+	padding-right:6px;	
+	margin-bottom:6px;
+}
+.form-control{
+	padding:0;
+}
+.checkbox{
+	margin-top:0;
+}
+.combo-panel{
+	padding:0;
+}
+#query .panel-title a{
+	text-decoration:none;
+}
+#query .panel-body {
+	overflow:visible;
+}
+#searchform label{
+	margin-top:6px;
+}
+#operate{
+	margin-bottom:10px;
+}
+#operate .title{
+	margin-right:20px;
+	font-weight:bold;
+}
+#operate .btn{
+	margin-right:6px;
+}
+#dataset{
+	height:420px;
+}
+.modal-content{
+	width:700px;
+}
+.modal-body{
+	padding:0 20px;
+}
+.modal-footer{
+	margin-top:0;
+	text-align:center;
+}
+.modal-footer .btn{
+	margin:0 30px;
+}
+#prompt{
+	margin-bottom:6px;
+	height:20px;
+	color:#f00;
+	font-size:16px;
+	font-weight:bold;
+	text-align:center;
+}
+#editform label{
+	text-align:right;
+}
+.mark{
+	font-size:20px;
+	font-weight:bold;
+	color:red;
+	vertical-align:middle;	
+}
+.self-display{
+	display:none;
+}
+.self-date.form-control[readonly]{
+	background-color:#fff;
+}
+.self-date:hover{
+	cursor:pointer;
+}
+
+/*覆盖easyui样式*/
+.datagrid-mask-msg{
+	height:auto;
+}
+
+/*覆盖bootstrap样式*/
+input[type="checkbox"]{
+	margin: 0;
+}

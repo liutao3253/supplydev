@@ -8,13 +8,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
 
-    <link rel="stylesheet" href="./css/font.css">
-    <link rel="stylesheet" href="./css/xadmin.css">
-    <link rel="stylesheet" href="./css/layui.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/bootstrap.css">  
     <link rel="stylesheet" href="./css/ticketgoods.css">
-    <script type="text/javascript" src="./js/jquery-1.8.3.min.js"></script>
-    <script type="text/javascript" src="./lib/layui/layui.js" charset="utf-8"></script>
-    <script type="text/javascript" src="./js/xadmin.js"></script>
+    <link rel="stylesheet" href="./css/easyui.css">
+    <script type="text/javascript" src="./js/jquery-1.8.3.min.js"></script>  
+    <script type="text/javascript" src="./js/jquery.easyui.min.js"></script>
     <script type="text/javascript" src="./js/ticketgoods.js"></script>
   </head>
   
@@ -29,76 +28,74 @@
     <div class="x-body">
       <div class="layui-row">
         <form class="layui-form">
-        	<div class="layui-col-md11 layui-col-sm10 layui-col-xs10 layui-form-item">
-        		<div class="layui-inline" >
-	        		<label class="layui-form-label">审核状态</label>
-					    <div class="layui-input-block"  style="width: 130px;">
-					      <select name="city" lay-verify="required" required>
-					        <option value="0">全部</option>
-					        <option value="1">已保存</option>
-					        <option value="2">审核中</option>
-					        <option value="3">已通过</option>
-					        <option value="4">未通过</option>
-					      </select>
-					    </div>
-					</div>
+        	
+        	<div class="row">
+        		
+        	
+        	<div class="col-xs-10 col-sm-10 col-lg-10 col-md-10">
+	        		<div class="col-xs-3 col-sm-3 col-lg-3 col-md-3" >
+		        		<label class="layui-form-label">审核状态</label>
+						   
+						      <select name="city">
+						        <option value="0">全部</option>
+						        <option value="1">已保存</option>
+						        <option value="2">审核中</option>
+						        <option value="3">已通过</option>
+						        <option value="4">未通过</option>
+						      </select>
+						
+						</div>
 
-						<div class="layui-inline">
+						<div class="col-xs-3 col-sm-3 col-lg-3 col-md-3">
 						    <label class="layui-form-label">上下架状态</label>
-						    <div class="layui-input-block"  style="width: 130px;">
-						      <select name="city" lay-verify="required" required>
+						   
+						      <select name="city">
 						        <option value="0">全部</option>
 						        <option value="1">上架</option>
 						        <option value="2">下架</option>
 						      </select>
-						    </div>
+	
 						</div>
-						<div class="layui-inline">
+						
+						<div class="col-xs-3 col-sm-3 col-lg-3 col-md-3">
 						    <label class="layui-form-label">商品名称</label>
-						    <div class="layui-input-inline"  style="width: 130px;">
-						      <input type="password" name="password" required lay-verify="required" autocomplete="off" class="layui-input">
-						    </div>
+						  
+						    <input type="password" name="password" class="layui-input">
 						</div>
-						<div class="layui-inline">
+						
+						<div class="col-xs-3 col-sm-3 col-lg-3 col-md-3">
 						    <label class="layui-form-label">商品ID</label>
-						    <div class="layui-input-inline"  style="width: 130px;">
-						      <input type="password" name="password" required lay-verify="required" autocomplete="off" class="layui-input">
-						    </div>
+						  
+						      <input type="password" name="password"  class="layui-input">
 						</div>
-						<div class="layui-inline">
+						
+						<div class="col-xs-3 col-sm-3 col-lg-3 col-md-3">
 					    <label class="layui-form-label">产品名称</label>
-					    <div class="layui-input-inline"  style="width: 130px;">
-					      <input type="password" name="password" required lay-verify="required" autocomplete="off" class="layui-input">
-					    </div>
-					</div>
+					 
+					      <input type="password" name="password" class="layui-input">
+
+					  </div>
+					  
         	</div>
-        	<div class="layui-col-md1 layui-col-xs1 layui-col-sm1">
-        		 <button class="layui-btn" style="background: #314868;"><i class="layui-icon">&#xe615;</i>查询</button>
-        	</div>
-           
+        	
+        	
+		        	<div class="col-xs-1 col-sm-1 col-lg-1 col-md-1">
+		        		 <button class="layui-btn" style="background: #314868;height:30px;line-height: 30px;"><i class="layui-icon">&#xe615;</i>查询</button>
+		        	</div>
+          </div>
+          
         </form>
       </div>
-      <xblock style="background: #EFEEF0;margin: 0;">
-        <button class="layui-btn" style="background: #F5B12D;">添加新商品</button>
+      <xblock style="background: #EFEEF0;">
+        <button class="layui-btn addgoods" style="background: #F5B12D;height:30px;line-height: 30px;">添加新商品</button>
       </xblock>
-      <table class="layui-table" id="test"></table>
-      <script type="text/html" id="barDemo">
-      	<a title="查看"  href="javascript:;"><img src="./images/show.png" alt="" /></a>
-			  <a title="编辑"  href="javascript:;"><i class="layui-icon">&#xe642;</i></a>
-			  <a title="删除"  onclick="member_del(this,'要删除的id')" href="javascript:;"><i class="layui-icon">&#xe640;</i></a>
-			  <a title="上架"  href="javascript:;"><i class="layui-icon">&#xe618;</i></a>
-			  <!--<a title="下架"  href="javascript:;"><i class="layui-icon">&#xe618;</i></a>-->
-      </script>
-      <div id="page"></div>
-
+      
+      <div id="dataset">
+			  	<table id="dg"></table>
+			</div>
+      
     </div>
-   
-    <script>var _hmt = _hmt || []; (function() {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?b393d153aeb26b46e9431fabaf0f6190";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-      })();</script>
+ 
   </body>
 
 </html>

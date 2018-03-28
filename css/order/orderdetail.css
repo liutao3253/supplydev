@@ -1,0 +1,22 @@
+.row{margin: 0;}
+.x-body{
+	margin:10px;
+	margin-right: 0;
+	border: 1px solid #ddd;
+	background: #fff;
+	padding: 20px;
+}
+html,body{
+	background: #e2e2e2;
+}
+.x-body span{
+	color: #9DA5A7;
+	display: block;
+	width: 100px;
+	text-align: right;
+}
+.x-body p{
+	width: 70%;
+	word-wrap : break-word;
+	background: red;
+}

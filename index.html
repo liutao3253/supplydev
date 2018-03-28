@@ -8,25 +8,22 @@
     <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
     <meta http-equiv="Cache-Control" content="no-siteapp" />
     
-<!--    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />-->
-    <link rel="stylesheet" href="./css/font.css">
-	<link rel="stylesheet" href="./css/xadmin.css">
-	<link rel="stylesheet" href="./css/index.css">
-    <script type="text/javascript" src="./js/jquery-1.8.3.min.js"></script>
-    <script src="./lib/layui/layui.js" charset="utf-8"></script>
-    <script type="text/javascript" src="./js/index.js"></script>
+    <link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/index.css">
+    <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
 
 </head>
 <body>
     <!-- 顶部开始 -->
-    <div class="container">
-        <div class="logo left">
+    <div class="container clearfix">
+        <div class="logo fl">
         	<img src="./images/logo.png" alt="" style="margin-top: -3px;"/>
         	<span style="font-size: 20px;">|</span>
         	<span style="color: #fff;">供应商平台</span>
         </div>
 
-        <ul class="layui-nav right" lay-filter="">
+        <ul class="layui-nav fr">
         	<li>欢迎您，<span>XXX</span>旅行公司</li>
         	<li>2017年12月10日</li>
         	<li>周五</li>
@@ -45,7 +42,7 @@
      	<span style="font-size: 18px;">王先武</span>
      </div>
       <div id="side-nav">
-        <ul id="nav">
+        <ul id="nav" style="padding-left: 10px;margin-top: 10px;">
             <li>
                 <a href="javascript:;">
                     <img src="./images/product.png" alt="" />
@@ -55,27 +52,25 @@
                 <ul class="sub-menu">
                     <li>
                         <a _href="ticketproduct.html">
-                            <!--<i class="iconfont">&#xe6a7;</i>-->
-                            <cite>门票产品</cite>
-                            
+                            <cite>门票产品</cite> 
                         </a>
                     </li >
                     <li>
                         <a _href="ticketgoods.html">
-                            <!--<i class="iconfont">&#xe6a7;</i>-->
+                           
                             <cite>门票商品</cite>
                             
                         </a>
                     </li>
                     <li>
-                        <a href="javascript:;">
-                            <!--<i class="iconfont">&#xe6a7;</i>-->
+                        <a _href="javascript:;">
+                         
                             <cite>周边游产品</cite>
                         </a>
                     </li> 
                     <li>
                         <a _href="xxx.html">
-                            <!--<i class="iconfont">&#xe6a7;</i>-->
+                  
                             <cite>周边游商品</cite>
                             
                         </a>
@@ -110,7 +105,7 @@
                         </a>
                     </li >
                     <li>
-                        <a _href="order-list.html">
+                        <a href="order-list.html">
                             <!--<i class="iconfont">&#xe6a7;</i>-->
                             <cite>组合产品订单查询</cite>
                         </a>
@@ -122,7 +117,7 @@
                         </a>
                     </li >
                     <li>
-                        <a _href="order-list.html">
+                        <a _href="order/orderdetail.html">
                             <!--<i class="iconfont">&#xe6a7;</i>-->
                             <cite>周边游订单确认</cite>
                         </a>
@@ -213,7 +208,7 @@
           </ul>
           <div class="layui-tab-content">
             <div class="layui-tab-item layui-show">
-                <iframe src='./ticketproduct.html' frameborder="0" scrolling="yes" class="x-iframe"></iframe>
+                <iframe src='order/orderdetail.html' frameborder="0" scrolling="yes" class="x-iframe"></iframe>
             </div>
           </div>
         </div>
@@ -221,10 +216,5 @@
     <div class="page-content-bg"></div>
     <!-- 右侧主体结束 -->
     <!-- 中部结束 -->
-    <!-- 底部开始 -->
-    <!--<div class="footer">
-        <div class="copyright">Copyright ©2017 x-admin v2.3 All Rights Reserved</div>  
-    </div>-->
-    <!-- 底部结束 -->
 </body>
 </html>

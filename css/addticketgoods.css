@@ -1,0 +1,81 @@
+.layui-btn-small{
+	height: 25px;
+	width: 67px;
+	line-height: 25px;
+}
+.operate span{
+	font-size: 16px;
+	color: #324663;
+	margin-right: 10px;
+}
+.save{
+	background: #F5B12D;
+}
+.submit{
+	background: #324663;
+}
+/*tab页*/
+.layui-tab{margin: 30px 0;}
+.layui-tab-title{border-bottom:3px solid #e2e2e2; ;}
+.layui-tab-brief>.layui-tab-title .layui-this { color: #324663;}
+.layui-tab-brief>.layui-tab-title .layui-this:after {
+	border-bottom: 3px solid #324663;;
+}
+.layui-form-select dl dd.layui-this {background-color: #324663;}
+.layui-form-radio i:hover, .layui-form-radioed i {
+    color: #324663;
+}
+.layui-tab{
+	padding-left: 40px;
+}
+.layui-tab-title{padding: 0;margin-bottom: 40px;}
+.layui-form-item{margin-bottom: 20px;}
+.layui-form-label {
+	display: block;
+	float: left;
+    padding: 9px 15px;
+    width: 120px;
+    font-weight: 400;
+    text-align: right;
+}
+
+label span{color: red;margin-right: 3px;}
+
+/*弹框*/
+.showmask{
+	background: #fff;
+	position: fixed;
+	top: 100px;
+	width: 600px;
+	height: 400px;
+	overflow: hidden;
+	display: none;
+}
+.productchoose{
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	font-size: 16px;
+	border-bottom: 1px solid #EDEDED;
+}
+.productchoose span{
+	width: 5px;
+	height: 20px;
+	display: inline-block;
+	background: #139AE8;
+	margin-right: 20px;
+}
+.content{
+	padding: 20px;
+	width: 100%;
+	height: 250px;
+}
+.content .layui-btn{background: #139AE8;width: 67px;}
+.content .cancle{
+	background: #fff;
+	border: 1px solid #139AE8;
+	color: #139AE8;
+}
+.operate{
+	text-align: center;
+}
