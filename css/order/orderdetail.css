@@ -18,5 +18,21 @@ html,body{
 .x-body p{
 	width: 70%;
 	word-wrap : break-word;
-	background: red;
 }
+
+.detail {
+	margin-bottom: 10px;
+	/*border: 1px solid #ddd;*/
+}
+.detail table tr{
+	height: 30px;
+	line-height: 30px;
+}
+.detail table th,.detail table td{
+	height: 30px;
+	padding: 0 10px;
+	line-height: 30px;
+	text-align: center;
+	border: 1px solid #ddd;
+}
+.detail table th{background: #E4F5FB;border-top: 3px solid #04C1FF;}

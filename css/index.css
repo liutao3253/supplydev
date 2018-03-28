@@ -5,7 +5,7 @@
 }
 .container{width: 100%;position: fixed;top:0;z-index: 99;}
 .left-nav {
-	width: 200px;
+	width: 190px;
     position: absolute;
     top: 46px;
     bottom: 0px;
@@ -116,4 +116,29 @@ li.exit:hover .exit_text{display: block;}
     height: 39px;
     overflow: hidden;
     background: #fff;
+}
+li {
+    cursor: pointer;
+    font-size: 14px;
+}
+.rotate{
+	transform: rotate(180deg);
+}
+.x-slide_left{
+	width: 20px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 190px;
+    cursor: pointer;
+    z-index: 3;
+}
+.x-slide_left img{
+	text-align: center;
+	position: absolute;
+	top: 50%;
+	display: none;
+}
+.x-slide_left:hover img{
+	display: block;
 }
