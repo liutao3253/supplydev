@@ -10,9 +10,13 @@
 
     <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="./css/easyui.css">
+    <link rel="stylesheet" href="./css/fullcalendar.css" />
     <link rel="stylesheet" href="./css/addticketgoods.css">
     <script type="text/javascript" src="./js/jquery-1.8.3.min.js"></script>
     <script type="text/javascript" src="./js/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="./js/moment.min.js"></script>
+    <script type="text/javascript" src="./js/fullcalendar.min.js"></script>
+    <script type="text/javascript" src="./js/fullcalendar_zh-cn.js"></script>
     <script type="text/javascript" src="./js/addticketgoods.js"></script>
   </head>
   
@@ -71,14 +75,14 @@
 						  
               <div class="layui-form-item">
 						    <label class="layui-form-label"><span>*</span>提前预定时间</label>
-						    <input type="text" name="password" class="layui-input" style="width: 80px;">
+						    <input type="text" required="required" class="layui-input" style="width: 80px;">
 						    <span>小时</span>
 						  </div>
 						  
  							<div class="layui-form-item">
 						    <div class="layui-inline" >
 						      <label class="layui-form-label"><span>*</span>支付方式</label>
-						      <select name="quiz1" lay-verify="required" autocomplete="off" class="layui-input">							        
+						      <select name="quiz1" required="required" autocomplete="off" class="layui-input">							        
 						        <option value="微信" selected="">微信</option>
 						        <option value="支付宝">支付宝</option>
 						      </select>
@@ -109,11 +113,11 @@
 						    <div class="layui-inline clearfix">
 						      <div class="fl">
 						      	<label class="layui-form-label"><span>*</span>退款时间限制</label>
-							      <input type="text" name="price_min" lay-verify="required" autocomplete="off" class="layui-input" style="width: 80px;">
+							      <input type="text" name="price_min" required="required" class="layui-input" style="width: 80px;">
 							      <span>元</span>
-							      <input type="text" name="price_min" lay-verify="required" autocomplete="off" class="layui-input" style="width: 80px;">
+							      <input type="text" name="price_min" required="required" class="layui-input" style="width: 80px;">
 							      <span>时</span>
-							      <input type="text" name="price_min" lay-verify="required" autocomplete="off" class="layui-input" style="width: 80px;">
+							      <input type="text" name="price_min" required="required" class="layui-input" style="width: 80px;">
 							      <span>分</span>
 						      </div>
 						      <p class="fl" style="width: 40%;padding: 0;margin: 0;margin-left: 20px;color: #F5B12D;">退款时间限制只能填整数，分为天、小时、分钟，整数表示需提前D天、H小时、M分钟申请退款，负数表示可延后D天、H小时、M分钟申请退款(D、H、M分别代表天、时、分对应填入的数值)</span>
@@ -254,7 +258,10 @@
 							  	<button class="layui-btn fr" style="margin-right: 50px;">批量添加</button>
 							  </div>
 							</div>
-						  
+						    
+						  <div class="layui-form-item">
+						  	<div id='calendar'></div>
+						  </div>
 
 			  		</form>
 			  		
