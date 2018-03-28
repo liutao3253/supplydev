@@ -71,7 +71,7 @@
 						  
               <div class="layui-form-item">
 						    <label class="layui-form-label"><span>*</span>提前预定时间</label>
-						    <input type="text" name="password" lay-verify="required" autocomplete="off" class="layui-input">
+						    <input type="text" name="password" class="layui-input" style="width: 80px;">
 						    <span>小时</span>
 						  </div>
 						  
@@ -96,25 +96,27 @@
 						    <label class="layui-form-label"><span>*</span>扣费类型</label>
 						    <input type="radio" name="money" value="固定金额"checked="">固定金额
 						    <input type="radio" name="money" value="百分比">	百分比					    
-						    <span>针对退票时的扣费规则</span>
+						    <span style="color: #F5B12D;">针对退票时的扣费规则</span>
 						  </div>
  					
  						  <div class="layui-form-item">
 						    <label class="layui-form-label"><span>*</span>扣费数值</label>
-						    <input type="text" name="text" required="required" class="layui-input">
+						    <input type="text" name="text" required="required" class="layui-input" style="width: 80px;">
 						    <span>元</span>
 						  </div>
  
 						  <div class="layui-form-item">
-						    <div class="layui-inline">
-						      <label class="layui-form-label"><span>*</span>退款时间限制</label>
-						      <input type="text" name="price_min" lay-verify="required" autocomplete="off" class="layui-input">
-						      <span>元</span>
-						      <input type="text" name="price_min" lay-verify="required" autocomplete="off" class="layui-input">
-						      <span>时</span>
-						      <input type="text" name="price_min" lay-verify="required" autocomplete="off" class="layui-input">
-						      <span>分</span>
-						      <span>退款时间限制只能填整数，分为天、小时、分钟，整数表示需提前D天、H小时、M分钟申请退款，负数表示可延后D天、H小时、M分钟申请退款(D、H、M分别代表天、时、分对应填入的数值)</span>
+						    <div class="layui-inline clearfix">
+						      <div class="fl">
+						      	<label class="layui-form-label"><span>*</span>退款时间限制</label>
+							      <input type="text" name="price_min" lay-verify="required" autocomplete="off" class="layui-input" style="width: 80px;">
+							      <span>元</span>
+							      <input type="text" name="price_min" lay-verify="required" autocomplete="off" class="layui-input" style="width: 80px;">
+							      <span>时</span>
+							      <input type="text" name="price_min" lay-verify="required" autocomplete="off" class="layui-input" style="width: 80px;">
+							      <span>分</span>
+						      </div>
+						      <p class="fl" style="width: 40%;padding: 0;margin: 0;margin-left: 20px;color: #F5B12D;">退款时间限制只能填整数，分为天、小时、分钟，整数表示需提前D天、H小时、M分钟申请退款，负数表示可延后D天、H小时、M分钟申请退款(D、H、M分别代表天、时、分对应填入的数值)</span>
 						    </div>
 						  </div>
 			
@@ -126,52 +128,32 @@
 						
 			    	</form>
 			    </div>
-			    <!--预定风格-->
-			    <!--<div class="layui-tab-item">
-			    	<form class="layui-form" action="">
-			    		
-						  <div class="layui-form-item">
-						    <label class="layui-form-label"><span>*</span>所属商品</label>
-						    <div class="layui-input-block">
-						      <input type="text" name="title" lay-verify="required" autocomplete="off" class="layui-input">
-						    </div>
-						  </div>
-						</form>
-			    </div>-->
-			    <!--商品价格-->
-			    <!--<div class="layui-tab-item">
-			    	<form class="layui-form" action="">
-			    		
-						  <div class="layui-form-item">
-						    <label class="layui-form-label"><span>*</span>所属商品所属商品</label>
-						    <div class="layui-input-block">
-						      <input type="text" name="title" lay-verify="required" autocomplete="off" class="layui-input">
-						    </div>
-						  </div>
-						</form>
-			    </div>-->
+			  
 			  </div>
 			</div>
 
    
    
    	<!--弹框-->
-   	<div class="showmask" >
-   			<div class="productchoose"><span></span>产品选择</div>
+   <div id="showmask">	
+   
+      <div class="showmask" >
+   			<div class="productchoose clearfix">
+   				<div class="fl shu"></div>
+   				<div class="fl tit">产品选择</div>
+   			</div>
    			<div class="content">
-   				<div class="layui-input-inline" style="width: 50%;">
-		        <input type="text" lay-verify="required" autocomplete="off" class="layui-input" placeholder="产品ID/产品名称">
-		      </div>  				
-   				<button class="layui-btn">搜索</button>
-   				<div style="width: 96%;	overflow-y: scroll;height: 200px;margin-top: 10px;">
-   				  <table class="layui-table">
-					    <thead>
+   				<div class="" style="width: 50%;">
+		        <input type="text" class="layui-input" placeholder="产品ID/产品名称">
+ 				    <button class="layui-btn search">搜索</button>
+ 				  </div>
+ 				  
+   				<div class="tables ">
+   				  <table style="width: 100%;">
 					      <tr>
-					        <th>产品ID</th>
-					        <th>商品名称</th>
+					        <th style="width: 40%;">产品ID</th>
+					        <th style="width: 60%;">商品名称</th>
 					      </tr> 
-					    </thead>
-					    <tbody>
 					      <tr>
 					        <td>贤心</td>
 					        <td>汉族</td>
@@ -200,17 +182,18 @@
 					        <td>贤心</td>
 					        <td>汉族</td>
 					      </tr>
-					    </tbody>
 					  </table>
 
    				</div>
    			
-   			  <div style="margin-top: 20px;" class="operate">
+   			  
+   			</div>
+   			<div style="margin: 20px 0;" class="center">
    			  	<button class="layui-btn cancle" >取消</button>
    				  <button class="layui-btn sure">确定</button>
    			  </div>
-   			</div>
    	</div>
+  </div>
   </body>
 
 </html>
