@@ -45,4 +45,51 @@ select{
 .content{
 	padding: 20px;
 }
+.layui-tab-item {
+    display: none
+}
+.layui-show{
+	display: block;
+}
 
+.item{
+	width: 90%;
+}
+.item .itemtext{
+	background: url('../images/newproduct.png')no-repeat center;
+	background-size: contain;
+	color: #fff;
+	width: 100px;
+	height: 35px;
+	line-height: 35px;
+	text-align: center;
+	position: absolute;
+	top: 0;bottom:0;margin: auto;
+	left: 0;
+	z-index: 2;
+}
+.item .itemline{
+	width: 99%;
+	height: 1px;
+	position: absolute;
+	top: 0;bottom: 0;margin: auto;
+	right: 0;
+	border-bottom: 1px dashed #71BBDA;
+	
+}
+.next_btn,.prev_btn{
+	border:1px solid #159BE8;
+	background: #fff;
+	color: #159BE8;
+}
+
+.row{
+	border: 1px dashed #ddd;
+	padding: 20px 0;
+	
+}
+.chooseweek{
+	margin-left: 80px;
+	margin-top: 20px;
+}
+.chooseweek input{margin-left: 20px;}

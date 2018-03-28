@@ -45,7 +45,7 @@
 			  </ul>
 			  <div class="layui-tab-content">
 			  	<!--基本信息-->
-			    <div class="layui-tab-item layui-show">
+			    <div class="layui-tab-item " data-index="0">
 			    	<form class="layui-form" action="">
 
 						  <div class="layui-form-item">
@@ -119,16 +119,150 @@
 						      <p class="fl" style="width: 40%;padding: 0;margin: 0;margin-left: 20px;color: #F5B12D;">退款时间限制只能填整数，分为天、小时、分钟，整数表示需提前D天、H小时、M分钟申请退款，负数表示可延后D天、H小时、M分钟申请退款(D、H、M分别代表天、时、分对应填入的数值)</span>
 						    </div>
 						  </div>
-			
-						  <div class="layui-form-item">
-						    <div class="layui-input-block"style="text-align: center;">
-						      <button class="layui-btn" >下一步</button>						      
-						    </div>
-						  </div>
-						
+
 			    	</form>
+			    	<div class="layui-form-item center">
+						  <button class="layui-btn next_btn" >下一页</button>						      
+						</div>
+						
 			    </div>
 			  
+			  	<!--预订须知-->
+			  	<div class="layui-tab-item" data-index="1">
+			  		<form action="" class="layui-form">
+			  			
+			  			<div class="layui-form-item">
+						    <label class="layui-form-label"><span>*</span>费用包含</label>
+						    <textarea name="" rows="5" cols="100"></textarea>
+						  </div>
+						  
+						  <div class="item">
+						  	<div class="layui-form-item" style="position: relative;height: 35px;overflow: hidden;">
+							  	<p class="itemtext">入园须知</p>
+							  	<p class="itemline"></p>
+							  </div>
+						  	<div class="layui-form-item">
+							    <label class="layui-form-label"><span>*</span>入园时间</label>
+							    <input type="text" name="price_min" lay-verify="required" autocomplete="off" class="layui-input" style="width: 80px;">
+								  <span>-</span>
+								  <input type="text" name="price_min" lay-verify="required" autocomplete="off" class="layui-input" style="width: 80px;">
+							  </div>
+						  </div>
+						  
+						  
+						  <div class="layui-form-item">
+						    <label class="layui-form-label">入园时间说明</label>
+						    <textarea name="" rows="5" cols="100"></textarea>
+						  </div>
+						  
+						  <div class="layui-form-item">
+						    <label class="layui-form-label"><span>*</span>入园地点</label>
+						    <input type="text" name="price_min" lay-verify="required" autocomplete="off" class="layui-input" style="width: 300px;">
+						  </div>
+						  
+						  <div class="layui-form-item">
+						    <label class="layui-form-label"><span>*</span>取票时间</label>
+						    <input type="text" name="price_min" lay-verify="required" autocomplete="off" class="layui-input" style="width: 80px;">
+							  <span>-</span>
+							  <input type="text" name="price_min" lay-verify="required" autocomplete="off" class="layui-input" style="width: 80px;">
+						  </div>
+						  
+						  <div class="layui-form-item">
+						    <label class="layui-form-label">取票时间说明</label>
+						    <textarea name="" rows="5" cols="100"></textarea>
+						  </div>
+						  
+						  <div class="layui-form-item">
+						    <label class="layui-form-label"><span>*</span>取票地点</label>
+						    <input type="text" name="price_min" lay-verify="required" autocomplete="off" class="layui-input" style="width: 300px;">
+						  </div>
+						  
+						  <div class="layui-form-item">
+						    <label class="layui-form-label"><span>*</span>入园方式</label>
+						    <input type="text" name="price_min" lay-verify="required" autocomplete="off" class="layui-input" style="width: 300px;">
+						  </div>
+						  
+						  <div class="layui-form-item">
+						    <label class="layui-form-label"><span>*</span>有效期限</label>
+						    <input type="text" name="price_min" lay-verify="required" autocomplete="off" class="layui-input" style="width: 300px;">
+						  </div>
+						  
+						  
+						  <div class="item">
+						  	<div class="layui-form-item" style="position: relative;height: 35px;overflow: hidden;">
+							  	<p class="itemtext">重要提示</p>
+							  	<p class="itemline"></p>
+							  </div>				
+						  	<div class="layui-form-item">
+							    <label class="layui-form-label"></label>
+							    <textarea name="" rows="5" cols="100"></textarea>
+							  </div>
+						  </div>
+						  
+						  
+						  <div class="item">
+						  	<div class="layui-form-item" style="position: relative;height: 35px;overflow: hidden;">
+							  	<p class="itemtext">退改说明</p>
+							  	<p class="itemline"></p>
+							  </div>
+						  	<div class="layui-form-item">		
+							  	<label class="layui-form-label"></label>
+							    <textarea name="" rows="5" cols="100"></textarea>
+							  </div>
+						  </div>						 
+						  
+			  		</form>
+			  		
+			  		<div class="layui-form-item center">
+			  			 <button class="layui-btn prev_btn">上一页</button>
+			  			 <button class="layui-btn next_btn">下一页</button>
+			  		</div>
+			  	</div>
+			  	
+			  	<!--商品价格-->
+			  	<div class="layui-tab-item layui-show"  data-index="2">
+			  		<form action="" class="layui-form">
+
+						  <div class="layui-form-item">
+						    <label class="layui-form-label" style="width: 70px;"><span>*</span>门市价</label>
+						    <input type="text" name="price_min" lay-verify="required" autocomplete="off" class="layui-input">
+						  	<span>元</span>
+						  </div>
+
+							<div class="row">
+								<div class="layui-form-item">
+							    <label class="layui-form-label" style="width: 70px;"><span>*</span>起止日期</label>
+							    <input type="text" name="price_min" lay-verify="required" autocomplete="off" class="layui-input">
+							  	<span>-</span>
+							  	<input type="text" name="price_min" lay-verify="required" autocomplete="off" class="layui-input">
+							  	<div class="chooseweek">
+								  		<input type="checkbox" name="week" value="全部日期" />全部日期
+											<input type="checkbox" name="week" value="星期一" />星期一
+											<input type="checkbox" name="week" value="星期二" />星期二
+											<input type="checkbox" name="week" value="星期三" />星期三
+											<input type="checkbox" name="week" value="星期四" />星期四
+											<input type="checkbox" name="week" value="星期五" />星期五
+											<input type="checkbox" name="week" value="星期六" />星期六
+											<input type="checkbox" name="week" value="星期日" />星期日
+							  	</div>
+								</div>
+							  
+							  <div class="layui-form-item">
+							    <label class="layui-form-label" style="width: 70px;"><span>*</span>结算价</label>
+							    <input type="text" name="price_min" lay-verify="required" autocomplete="off" class="layui-input">
+							  	<span>元</span>
+							  	<button class="layui-btn fr" style="margin-right: 50px;">批量添加</button>
+							  </div>
+							</div>
+						  
+
+			  		</form>
+			  		
+			  		<div class="layui-form-item center">
+			  			 <button class="layui-btn prev_btn">上一页</button>
+			  		</div>
+			  	</div>
+			  	
 			  </div>
 			</div>
 
