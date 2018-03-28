@@ -53,12 +53,12 @@
 			  	
 			  		
 			  	<!--基本信息-->
-			    <div class="layui-tab-item" data-index="0">
+			    <div class="layui-tab-item  layui-show" data-index="0">
 			    	<form class="layui-form" action="">
 
 						  <div class="layui-form-item">
 						    <label class="layui-form-label"><span>*</span>产品名称</label>
-						    <input type="text" name="title" required="required" placeholder="请选择" class="layui-input" id="choose" readonly="readonly">
+						    <input type="text" name="title" required="required" class="layui-input">
 						  </div>
 
  							<div class="layui-form-item">
@@ -86,8 +86,18 @@
 						  
               <div class="layui-form-item">
 						    <label class="layui-form-label"><span>*</span>目的地</label>
-						    <input type="text" required="required" class="layui-input" style="width: 80px;">
-						    <span>添加</span>
+						    <div class="address" style="width: 80px;">
+						    	<input type="text" required="required" class="layui-input" style="width: 80px;">
+						    	<img src="./images.close.png" alt="" />
+						    </div>
+						    <div class="address">
+						    	<input type="text" required="required" class="layui-input" style="width: 80px;">
+						    	<img src="./images.close.png" alt="" />
+						    </div>
+						    
+						    
+						   
+						    <span style="color: #159BE8;"><img src="./images/add.png" alt="" />添加地点</span>
 						  </div>
 						  
  							<div class="layui-form-item">
@@ -166,7 +176,7 @@
 			    </div>
 			  
 			  	<!--详细信息-->
-			  	<div class="layui-tab-item layui-show" data-index="1">
+			  	<div class="layui-tab-item" data-index="1">
 			  		<form action="" class="layui-form">
 			  			
 			  			<div class="layui-form-item clearfix">
@@ -204,7 +214,8 @@
 						  		 <span>夜</span>
 						  	</div>
 						  	
-					  		<div>
+						  	<!--day1-->
+					  		<div class="oneday">
 
 					  			<div class="row">
 					  		 		<div class="col-lg-3 col-sm-3 col-md-3 col-xs-3">
@@ -240,11 +251,11 @@
 					  	    </div>
 					  	    
 					  	    <div class="row">
+					  	    	
 					  	    	<div class="item">
-					  	    		
 									  	<div class="layui-form-item" style="position: relative;height: 35px;overflow: hidden;">
 										  	<p class="itemtext">游玩娱乐项目1</p>
-										  	<p class="itemline"></p>
+										  	<p class="itemline"><span>删除</span></p>
 										  </div>
 										  
 									  	<div class="layui-form-item clearfix">
@@ -269,7 +280,7 @@
 										  </div>
 										  
 										  <div class="layui-form-item">
-										  	<label class="layui-form-label">图片</label>
+										  	<label class="layui-form-label">景点图片</label>
 										  	<div>
 										  		<p>(支持常见的图片格式，如JPG、PNG等，图片小于2M.如果图片过大，请压缩后上传。)</p>
 										  		<ul>
@@ -279,94 +290,103 @@
 										  </div>
 										  
 									  </div>
+									  
 					  	    </div>
 					  	    
+					  	    
 							  </div>
-						  
+							  
+							  <!--day1-->
+							  <div class="oneday">
+
+					  			<div class="row">
+					  		 		<div class="col-lg-3 col-sm-3 col-md-3 col-xs-3">
+					  		 	 		<label class="layui-form-label"><span>*</span>交通</label>
+					  		 			<select name="quiz1" required="required" class="layui-input">							        
+								        <option value="汽车" selected>汽车</option>
+								        <option value="火车">火车</option>
+								        <option value="飞机">飞机</option>
+								        <option value="其他">其他</option>
+								     </select>
+										</div>
+					  		 	
+					  		 	 <div class="col-lg-3 col-sm-3 col-md-3 col-xs-3">
+					  		 	 		<label class="layui-form-label"><span>*</span>住宿</label>
+					  		 			<select name="quiz1" required="required" class="layui-input">							        
+								        <option value="民宿" selected>民宿</option>
+								        <option value="普通酒店">普通酒店</option>
+								        <option value="星际酒店">星际酒店</option>
+								        <option value="其他">其他</option>
+								     </select>
+					  		 	 </div>
+					  		 	 
+					  		 	 <div class="col-lg-3 col-sm-3 col-md-3 col-xs-3">
+					  		 	 		<label class="layui-form-label"><span>*</span>餐饮</label>
+					  		 			<select name="quiz1" required="required" class="layui-input">							        
+								        <option value="早餐" selected>早餐</option>
+								        <option value="午餐">午餐</option>
+								        <option value="晚餐">晚餐</option>
+								        <option value="无">无</option>
+								     </select>
+					  		 	 </div>
+
+					  	    </div>
+					  	    
+					  	    <div class="row">
+					  	    	
+					  	    	<div class="item">
+									  	<div class="layui-form-item" style="position: relative;height: 35px;overflow: hidden;">
+										  	<p class="itemtext">游玩娱乐项目1</p>
+										  	<p class="itemline"><span>删除</span></p>
+										  </div>
+										  
+									  	<div class="layui-form-item clearfix">
+										    <div class="fl">
+										    	 <label class="layui-form-label"><span>*</span>地标/目的地/活动主题</label>
+										       <input type="text" name="price_min" lay-verify="required" autocomplete="off" class="layui-input">
+										    </div>
+										    <div class="fr">
+										    	 <label class="layui-form-label"><span>*</span>时间</label>
+										       <select name="quiz1" required="required" class="layui-input">							        
+											        <option value="汽车" selected>汽车</option>
+											        <option value="火车">火车</option>
+											        <option value="飞机">飞机</option>
+											        <option value="其他">其他</option>
+											     </select>
+										    </div>
+										  </div>
+										  
+										  <div class="layui-form-item">
+										  	<label class="layui-form-label"><span>*</span>介绍</label>
+										  	<textarea name="" rows="5" cols="100"></textarea>
+										  </div>
+										  
+										  <div class="layui-form-item">
+										  	<label class="layui-form-label">景点图片</label>
+										  	<div>
+										  		<p>(支持常见的图片格式，如JPG、PNG等，图片小于2M.如果图片过大，请压缩后上传。)</p>
+										  		<ul>
+										  			<li></li>
+										  		</ul>
+										  	</div>
+										  </div>
+										  
+									  </div>
+									  
+					  	    </div>
+					  	    
+					  	    
+							  </div>
+						   
+						   
+						   <div><button class="layui-btn">添加项目</button></div>
+						  					  
 						  </div>	
-						  
-						  
-						  
-						  <div class="item">
-						  	<div class="layui-form-item" style="position: relative;height: 35px;overflow: hidden;">
-							  	<p class="itemtext">入园须知</p>
-							  	<p class="itemline"></p>
-							  </div>
-						  	<div class="layui-form-item">
-							    <label class="layui-form-label"><span>*</span>入园时间</label>
-							    <input type="text" name="price_min" lay-verify="required" autocomplete="off" class="layui-input" style="width: 80px;">
-								  <span>-</span>
-								  <input type="text" name="price_min" lay-verify="required" autocomplete="off" class="layui-input" style="width: 80px;">
-							  </div>
-						  </div>
-						  
-						  
-						  <div class="layui-form-item">
-						    <label class="layui-form-label">入园时间说明</label>
-						    <textarea name="" rows="5" cols="100"></textarea>
-						  </div>
-						  
-						  <div class="layui-form-item">
-						    <label class="layui-form-label"><span>*</span>入园地点</label>
-						    <input type="text" name="price_min" lay-verify="required" autocomplete="off" class="layui-input" style="width: 300px;">
-						  </div>
-						  
-						  <div class="layui-form-item">
-						    <label class="layui-form-label"><span>*</span>取票时间</label>
-						    <input type="text" name="price_min" lay-verify="required" autocomplete="off" class="layui-input" style="width: 80px;">
-							  <span>-</span>
-							  <input type="text" name="price_min" lay-verify="required" autocomplete="off" class="layui-input" style="width: 80px;">
-						  </div>
-						  
-						  <div class="layui-form-item">
-						    <label class="layui-form-label">取票时间说明</label>
-						    <textarea name="" rows="5" cols="100"></textarea>
-						  </div>
-						  
-						  <div class="layui-form-item">
-						    <label class="layui-form-label"><span>*</span>取票地点</label>
-						    <input type="text" name="price_min" lay-verify="required" autocomplete="off" class="layui-input" style="width: 300px;">
-						  </div>
-						  
-						  <div class="layui-form-item">
-						    <label class="layui-form-label"><span>*</span>入园方式</label>
-						    <input type="text" name="price_min" lay-verify="required" autocomplete="off" class="layui-input" style="width: 300px;">
-						  </div>
-						  
-						  <div class="layui-form-item">
-						    <label class="layui-form-label"><span>*</span>有效期限</label>
-						    <input type="text" name="price_min" lay-verify="required" autocomplete="off" class="layui-input" style="width: 300px;">
-						  </div>
-						  
-						  
-						  <div class="item">
-						  	<div class="layui-form-item" style="position: relative;height: 35px;overflow: hidden;">
-							  	<p class="itemtext">重要提示</p>
-							  	<p class="itemline"></p>
-							  </div>				
-						  	<div class="layui-form-item">
-							    <label class="layui-form-label"></label>
-							    <textarea name="" rows="5" cols="100"></textarea>
-							  </div>
-						  </div>
-						  
-						  
-						  <div class="item">
-						  	<div class="layui-form-item" style="position: relative;height: 35px;overflow: hidden;">
-							  	<p class="itemtext">退改说明</p>
-							  	<p class="itemline"></p>
-							  </div>
-						  	<div class="layui-form-item">		
-							  	<label class="layui-form-label"></label>
-							    <textarea name="" rows="5" cols="100"></textarea>
-							  </div>
-						  </div>						 
-						  
+
 			  		</form>
 			  		
 			  		<div class="layui-form-item center">
 			  			 <button class="layui-btn prev_btn">上一页</button>
-			  			 <button class="layui-btn next_btn">下一页</button>
 			  		</div>
 			  	</div>
 			  	
