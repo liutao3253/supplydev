@@ -92,21 +92,22 @@ select{
 	width: 720px;
 }
 .choosetheme input{margin-left: 20px;}
-/*.address{
+.address{
 	position: relative;
 	height: 30px;
-	background: yellow;
-}*/
-/*.address input{
+	width: 110px;
+	left: 110px;
+}
+.address input{
 	position: absolute;
 	left: 0;
 	top: 0;
-	background: green;
+	width: 100%;
 }
 .address img{
-	width: 20px;
-	height: 20px;
+	width: 15px;
+	height: 15px;
 	position: absolute;
-	right: 0;
-	top: 5px;
-}*/
+	right: -30px;
+	top: 8px;
+}

@@ -47,7 +47,8 @@
 			<div class="layui-tab">
 			  <ul class="layui-tab-title">
 			    <li class="layui-this">基本信息</li>
-			    <li>详细信息</li>			   
+			    <li>详细信息</li>	
+			    <li>说明须知</li>	
 			  </ul>
 			  <div class="layui-tab-content">
 			  	
@@ -86,18 +87,18 @@
 						  
               <div class="layui-form-item">
 						    <label class="layui-form-label"><span>*</span>目的地</label>
-						    <div class="address" style="width: 80px;">
-						    	<input type="text" required="required" class="layui-input" style="width: 80px;">
-						    	<img src="./images.close.png" alt="" />
+						    <div class="address">
+						    	<input type="text" required="required" >
+						    	<img src="./images/close.png" alt="" />
 						    </div>
 						    <div class="address">
-						    	<input type="text" required="required" class="layui-input" style="width: 80px;">
-						    	<img src="./images.close.png" alt="" />
+						    	<input type="text" required="required">
+						    	<img src="./images/close.png" alt="" />
 						    </div>
 						    
 						    
 						   
-						    <span style="color: #159BE8;"><img src="./images/add.png" alt="" />添加地点</span>
+						    <!--<span style="color: #159BE8;"><img src="./images/add.png" alt="" />添加地点</span>-->
 						  </div>
 						  
  							<div class="layui-form-item">
@@ -387,7 +388,36 @@
 			  		
 			  		<div class="layui-form-item center">
 			  			 <button class="layui-btn prev_btn">上一页</button>
+			  			 <button class="layui-btn next_btn">下一页</button>
 			  		</div>
+			  	</div>
+			  	
+			  	<!--说明须知-->
+			  	<div class="layui-tab-item" data-index="2">
+			  		<form action="" class="layui-form">
+			  			<div class="layui-form-item clearfix">
+			  				<label for="" class="layui-form-label"><span>*</span>费用说明</label>
+			  				<div class="fl" style="width: 80%;margin-top: 30px;">
+			  					<div>
+				  					<p>费用包含：</p>
+				  					<textarea name="" rows="5" cols="100"></textarea>
+				  				</div>
+				  				<div>
+				  					<p>费用不包含：</p>
+				  					<textarea name="" rows="5" cols="100"></textarea>
+				  				</div>
+			  				</div>
+			  			</div>
+			  			
+			  			<div class="layui-form-item">
+			  				<label for="" class="layui-form-label"><span>*</span>预定须知</label>
+			  				<textarea name="" rows="5" cols="100" style="margin-top: 10px;"></textarea>
+			  			</div>
+			  		</form>
+			  		<div class="layui-form-item center">
+			  			 <button class="layui-btn prev_btn">上一页</button>
+			  		</div>
+			  		
 			  	</div>
 			  	
 			  </div>

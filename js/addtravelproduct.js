@@ -32,7 +32,6 @@ $(function(){
 		var index = parseInt(parent.attr('data-index'))+1;
 	    $('.layui-tab-title li:eq('+index+')').addClass('layui-this').siblings().removeClass('layui-this');
 	
-		validselfEvent();
 	});
 	
 //	价格日历

@@ -92,36 +92,7 @@ var data =[{
 	      "shelf": "以下架",
 	      "createtime": "2016-10-14 10:10:10",
 	      "updatetime": "2016-10-14 10:10:10"
-	   },{
-	      "id": "10001",
-	      "goodsname": "明十三陵",
-	      "ticket": "成人票",
-	      "productname": "明十三陵",
-	      "status": "已通过",
-	      "shelf": "以下架",
-	      "createtime": "2016-10-14 10:10:10",
-	      "updatetime": "2016-10-14 10:10:10"
-	    },{
-
-	      "id": "10001",
-	      "goodsname": "明十三陵",
-	      "ticket": "成人票",
-	      "productname": "明十三陵",
-	      "status": "未通过",
-	      "shelf": "以下架",
-	      "createtime": "2016-10-14 10:10:10",
-	      "updatetime": "2016-10-14 10:10:10"
-	    },{
-
-	      "id": "10001",
-	      "goodsname": "明十三陵",
-	      "ticket": "成人票",
-	      "productname": "明十三陵",
-	      "status": "已通过",
-	      "shelf": "以下架",
-	      "createtime": "2016-10-14 10:10:10",
-	      "updatetime": "2016-10-14 10:10:10"
-	    }];
+	   }];
 
 $(function(){
 	//初始化表格
@@ -131,9 +102,15 @@ $(function(){
 		columns: columns,
 		rownumbers: true,
 		pagination: true,
-		striped: true,
+		pageSize : 5,
+//		fit : true,
+    fitColumns : true,
+    
+    
+    
+//		striped: true,
 		pageList:[5,10,20,30,40,50],
-		singleSelect:true,
+//		singleSelect:true,
 //		height: getdategridHeight(1)
 
 	});
