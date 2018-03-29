@@ -8,7 +8,12 @@ $(function(){
 		  var user = $('.username').val();
 		  var pass = $('.password').val();
 		  if(!user||!pass){
-		  	alert('请填写用户名或者密码')
+		  	alert('请填写用户名或者密码');
 		  }
+		  
+//		  用户名 密码校验
+			
+		 	
+
 	 })
 })

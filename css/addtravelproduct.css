@@ -94,20 +94,129 @@ select{
 .choosetheme input{margin-left: 20px;}
 .address{
 	position: relative;
-	height: 30px;
 	width: 110px;
-	left: 110px;
+	margin-right: 10px;
+	margin-bottom: 10px;
 }
 .address input{
-	position: absolute;
-	left: 0;
-	top: 0;
 	width: 100%;
+	padding-right: 18px;
 }
 .address img{
 	width: 15px;
 	height: 15px;
 	position: absolute;
-	right: -30px;
-	top: 8px;
+	right: 2px;
+	top: 5px;
+	z-index: 2;
+}
+
+.travel li{
+	display: inline-block;
+	width: 80px;
+	height: 25px;
+	color: #fff;
+	line-height: 25px;
+	background: #71BBDA;
+	text-align: center;
+}
+.travel li.active{
+	background: #354052;
+}
+
+.addimg{
+	padding: 0;
+}
+.addimg li{
+	display: inline-block;
+	width:160px;
+	height: 140px;
+	border: 1px dashed #ddd;
+	margin: 10px;
+}
+.addimg li .myBtn{
+	width: 100%;height: 100%;
+	text-align: center;
+	position: relative;overflow: hidden;
+	}
+.addimg li .myBtn img{position: absolute;top: 0;bottom: 0;left:0;right:0;margin: auto;}
+#myFile{display: none;}
+.zhez{
+	position: absolute;
+	width: 86px;height: 66px;
+	font-size: 14px;
+	text-align: center;color: #b7bcbf;
+	border-radius: 5px;	
+	overflow: hidden;
+	top: 0;bottom: 0;
+	left: 0;right: 0;
+	margin: auto;
+	display: none;
+	}
+.zhez .title,.zhez .modify{
+	height: 50%;
+	line-height: 33px;	
+	opacity: 0.9;
+	background: #354052;
+}
+.zhez .title:hover,.zhez .modify:hover{background: #100e27;}
+.figure{
+	position: absolute;
+	background: #E35043;
+	border-radius: 5px;
+	text-align: center;
+	color: #fff;
+	padding:0 10px;
+	left: -2px;top: 5px;
+	display: none;
+}
+
+/*详细信息*/
+.productlist{width: 80%;}
+.detailmess{
+	border: 1px solid #71BBDA;
+	position: relative;
+	padding-right: 20px;
+	margin-bottom: 20px;
+}
+.detailmess #triangle-topleft {
+    width: 0;
+    height: 0;
+    border-top: 40px solid #71BBDA;
+    border-right: 40px solid transparent;
+}
+.detailmess .num{
+	position: absolute;
+	left: 10px;
+	top: 0;
+	color: #fff;
+}
+.detailmess .layui-form-label{
+	width: 70px;
+}
+
+.addproitem{
+	margin-left: 110px;
+}
+
+/*行程描述*/
+.daytime{
+	margin-left: 50px;
+	position: relative;
+	border-left: 2px solid  #04C1FF;
+	}
+
+.daytime .daynum{
+	width: 30px;
+	height: 30px;
+	border-radius: 100%;
+	background: #04C1FF;
+	text-align: center;
+	line-height: 30px;
+	color: #fff;
+	top: 0;left: -15px;
+	position: absolute;
+}
+.daytime .dayitem{
+	padding-left: 50px;
 }
