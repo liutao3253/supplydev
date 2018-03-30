@@ -147,11 +147,43 @@ $(function(){
 		$('.productlist').append(itemhtml)
 	});
 	
-//	添加行程
-	$('.addtravel').click(function(){
-		var len = $('.daytime .dayitem .oneday').length+1;
-		var html = _.template($("#tpl").html());
-		$(".dayitem").append(html({"index":len}));
+
+	
+//	行程描述
+	$('#daynum').blur(function(){
+		$("#daytime").html('');
+		var len  = $('#daynum').val();
+		var html = _.template($("#tplday").html());
+		for(let i =1 ;i<=len;i++){
+			$("#daytime").append(html({"index":(i)}));
+		}
+		//	添加行程
+		$('.addtravel button').click(function(){
+			var dom = $(this).parent().parent().children('.dayitem');
+			var len = dom.children('.oneday').length+1;
+			var html = _.template($("#tpl").html());
+			dom.append(html({"index":len}));
+		});
+//		添加图片
+
+		$('#daytime ').on('click', '.addimg .myBtn img', function() {
+			var imghtml = '';
+			imghtml +='<li><input type = "file" id="myFile" accept="image/*"/>';
+			imghtml +='<div class="myBtn"><img src="./images/update.png" alt="" class="addimgs" /></div></li>';
+		
+	        var ul = $(this).parent().parent().parent();
+			ul.append(imghtml);
+			
+			$(this).parent().siblings().click();// 模拟文件上传按钮点击操作
+	        var self = $(this).parent().siblings();
+			self.on("change",function(){
+				var objUrl = getObjectURL(this.files[0]) ; //获取图片的路径，该路径不是图片在本地的路径
+				if (objUrl) {
+				  self.siblings().children('img').attr("src", objUrl).css('width','100%').css('height','100%');			
+				}
+			});
+		})
+		
 		
 	})
 	

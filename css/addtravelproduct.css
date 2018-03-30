@@ -200,6 +200,9 @@ select{
 }
 
 /*行程描述*/
+#daytime{
+	margin-left: 50px;
+}
 .daytime{
 	margin-left: 50px;
 	position: relative;

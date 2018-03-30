@@ -55,7 +55,7 @@
 			  	
 			  		
 			  	<!--基本信息-->
-			    <div class="layui-tab-item  " data-index="0">
+			    <div class="layui-tab-item  layui-show" data-index="0">
 			    	<form class="layui-form" action="">
 
 						  <div class="layui-form-item">
@@ -231,7 +231,7 @@
 			    </div>
 			  
 			  	<!--详细信息-->
-			  	<div class="layui-tab-item layui-show" data-index="1">
+			  	<div class="layui-tab-item " data-index="1">
 			  		<!--<form action="" class="layui-form">-->
 			  			
 			  			<div class="layui-form-item clearfix">
@@ -282,104 +282,14 @@
 						  	
 						  	<div class="layui-form-item">
 						  		 <label class="layui-form-label"><span>*</span>行程描述</label>
-						  		 <input type="text" class="layui-input"/>
+						  		 <input type="text" class="layui-input" id="daynum"/>
 						  		 <span>天</span>
 						  		 <input type="text" class="layui-input"/>
 						  		 <span>夜</span>
 						  	</div>
 						  	
-						  	
-						  	<div class="daytime">
-						  		<div class="daynum">D1</div>
-						  		<div class="dayitem">
-						  			
-						  			<div class="clearfix">
-						  		 		<div class="fl">
-						  		 	 		<label class="layui-form-label" style="width: 70px;"><span>*</span>交通</label>
-						  		 			<select name="quiz1" required="required" class="layui-input">							        
-									        <option value="汽车" selected>汽车</option>
-									        <option value="火车">火车</option>
-									        <option value="飞机">飞机</option>
-									        <option value="其他">其他</option>
-									     </select>
-											</div>
-						  		 	
-						  		 	 <div class="fl">
-						  		 	 		<label class="layui-form-label"><span>*</span>住宿</label>
-						  		 			<select name="quiz1" required="required" class="layui-input">							        
-									        <option value="民宿" selected>民宿</option>
-									        <option value="普通酒店">普通酒店</option>
-									        <option value="星际酒店">星际酒店</option>
-									        <option value="其他">其他</option>
-									     </select>
-						  		 	 </div>
-						  		 	 
-						  		 	 <div class="fl">
-						  		 	 		<label class="layui-form-label"><span>*</span>餐饮</label>
-						  		 			<select name="quiz1" required="required" class="layui-input">							        
-									        <option value="早餐" selected>早餐</option>
-									        <option value="午餐">午餐</option>
-									        <option value="晚餐">晚餐</option>
-									        <option value="无">无</option>
-									     </select>
-						  		 	 </div>
-	
-						  	    </div>
-						  	    
-						  	    <!--项目一-->
-						  	    <div class="oneday">
-							  	    	<div class="item">
-											  	<div class="layui-form-item" style="position: relative;height: 35px;overflow: hidden;">
-												  	<p class="itemtext">游玩娱乐项目1</p>
-												  	<p class="itemline"></p>
-												  	<span>删除</span>
-												  </div>
-												  
-											  	<div class="layui-form-item clearfix">
-												    <div class="fl">
-												    	 <label class=""><span>*</span>地标/目的地/活动主题</label>
-												       <input type="text" name="price_min" class="layui-input">
-												    </div>
-												    <div class="fr">
-												    	 <label class=""><span>*</span>预计开始时间</label>
-												       <select name="quiz1" required="required" class="layui-input">							        
-													        <option value="汽车" selected>汽车</option>
-													        <option value="火车">火车</option>
-													        <option value="飞机">飞机</option>
-													        <option value="其他">其他</option>
-													     </select>
-												    </div>
-												  </div>
-												  
-												  <div class="layui-form-item">
-												  	<label class=""><span>*</span>介绍</label>
-												  	<textarea name="" rows="5" cols="100"></textarea>
-												  </div>
-												  
-												  <div class="layui-form-item">
-												  	<label class=""><span>*</span>景点图片</label><span>(支持常见的图片格式，如JPG、PNG等，图片小于2M.如果图片过大，请压缩后上传。)</span>
-											  		<ul class="addimg" style="width: 800px;margin-left: 40px;">
-											  			<li>
-												    		<input type = "file" id="myFile" accept="image/*"/>
-																<div class="myBtn">
-																	<img src="./images/update.png" alt="" class="addimgs" />
-																	<div class="zhez">
-																		<div class="modify">修改</div>
-																		<div class="del">删除</div>
-																	</div>
-																</div>
-												    	</li>
-											  		</ul>
-												  </div>
-												  
-											  </div>	  
-							  		</div>
-						  	    
-						  		</div>
-						  		
-						  		<div class="addtravel" style="margin-left: 50px;"><button class="layui-btn" style="background: #F5B12D;">添加项目</button></div>
-						  	</div>
-						  	
+						  	<div id="daytime"></div>
+						  
 			  
 						  </div>	
 
@@ -477,7 +387,100 @@
     <% }%>  
 	</script>
 	<!--天数-->
-	<script>
-		
+	<script type="text/template" id="tplday">
+	<%{%>
+		<div class="daytime">
+	  		<div class="daynum">D<%=index%></div>
+	  		<div class="dayitem">
+	  			
+	  			<div class="clearfix">
+	  		 		<div class="fl">
+	  		 	 		<label class="layui-form-label" style="width: 70px;"><span>*</span>交通</label>
+	  		 			<select name="quiz1" required="required" class="layui-input">							        
+				        <option value="汽车" selected>汽车</option>
+				        <option value="火车">火车</option>
+				        <option value="飞机">飞机</option>
+				        <option value="其他">其他</option>
+				     </select>
+						</div>
+	  		 	
+	  		 	 <div class="fl">
+	  		 	 		<label class="layui-form-label"><span>*</span>住宿</label>
+	  		 			<select name="quiz1" required="required" class="layui-input">							        
+				        <option value="民宿" selected>民宿</option>
+				        <option value="普通酒店">普通酒店</option>
+				        <option value="星际酒店">星际酒店</option>
+				        <option value="其他">其他</option>
+				     </select>
+	  		 	 </div>
+	  		 	 
+	  		 	 <div class="fl">
+	  		 	 		<label class="layui-form-label"><span>*</span>餐饮</label>
+	  		 			<select name="quiz1" required="required" class="layui-input">							        
+				        <option value="早餐" selected>早餐</option>
+				        <option value="午餐">午餐</option>
+				        <option value="晚餐">晚餐</option>
+				        <option value="无">无</option>
+				     </select>
+	  		 	 </div>
+
+	  	    </div>
+	  	    
+	  	    <!--项目一-->
+	  	    <div class="oneday">
+		  	    	<div class="item">
+						  	<div class="layui-form-item" style="position: relative;height: 35px;overflow: hidden;">
+							  	<p class="itemtext">游玩娱乐项目1</p>
+							  	<p class="itemline"></p>
+							  	<span>删除</span>
+							  </div>
+							  
+						  	<div class="layui-form-item clearfix">
+							    <div class="fl">
+							    	 <label class=""><span>*</span>地标/目的地/活动主题</label>
+							       <input type="text" name="price_min" class="layui-input">
+							    </div>
+							    <div class="fr">
+							    	 <label class=""><span>*</span>预计开始时间</label>
+							       <select name="quiz1" required="required" class="layui-input">							        
+								        <option value="汽车" selected>汽车</option>
+								        <option value="火车">火车</option>
+								        <option value="飞机">飞机</option>
+								        <option value="其他">其他</option>
+								     </select>
+							    </div>
+							  </div>
+							  
+							  <div class="layui-form-item">
+							  	<label class=""><span>*</span>介绍</label>
+							  	<textarea name="" rows="5" cols="100"></textarea>
+							  </div>
+							  
+							  <div class="layui-form-item">
+							  	<label class=""><span>*</span>景点图片</label><span>(支持常见的图片格式，如JPG、PNG等，图片小于2M.如果图片过大，请压缩后上传。)</span>
+						  		<ul class="addimg" style="width: 800px;margin-left: 40px;">
+						  			<li>
+							    		<input type = "file" id="myFile" accept="image/*"/>
+											<div class="myBtn">
+												<img src="./images/update.png" alt="" class="addimgs" />
+												<div class="zhez">
+													<div class="modify">修改</div>
+													<div class="del">删除</div>
+												</div>
+											</div>
+							    	</li>
+						  		</ul>
+							  </div>
+							  
+						  </div>	  
+		  		</div>
+	  	    
+	  		</div>
+	  		
+	  		<div class="addtravel" style="margin-left: 50px;">
+	  			<button class="layui-btn" style="background: #F5B12D;margin-bottom: 10px;">添加项目</button>
+	  		</div>
+	  	</div>
+		<% }%>  
 	</script>
 </html>
