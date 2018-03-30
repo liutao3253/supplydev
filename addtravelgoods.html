@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+    <meta charset="UTF-8">
+    <title>欢迎页面-X-admin2.0</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/easyui.css">
+    <link rel="stylesheet" href="./css/fullcalendar.css" />
+    <link rel="stylesheet" href="./css/addtravelgoods.css">
+    <script type="text/javascript" src="./js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="./js/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="./js/moment.min.js"></script>
+    <script type="text/javascript" src="./js/fullcalendar.min.js"></script>
+    <script type="text/javascript" src="./js/fullcalendar_zh-cn.js"></script>
+    <script type="text/javascript" src="./js/addtravelgoods.js"></script>
+  </head>
+  
+  <body>
+    <div class="x-nav">
+      <span class="layui-breadcrumb">
+        <a href="">商品管理</a>
+        <a href="">周边游商品</a>
+        <a><cite>添加新商品</cite></a>
+      </span>
+    </div>
+    
+    <div class="x-body clearfix">
+			<div class="operate fr">
+				<span><img src="" alt="" />返回</span>
+				<span style="font-size: 20px;">|</span>
+				<span><img src="" alt="" />预览</span>
+				<button class="layui-btn layui-btn-small save">保存</button>
+				<button class="layui-btn layui-btn-small submit">提交</button>
+				
+			</div>
+		</div>
+				
+			<!--tab页-->
+			<div class="layui-tab">
+			  <ul class="layui-tab-title">
+			    <li class="layui-this">基本信息</li>
+			    <li>团期/价格</li>
+			    <li>其他信息</li>
+			  </ul>
+			  <div class="layui-tab-content">
+			  	<!--基本信息-->
+			    <div class="layui-tab-item" data-index="0">
+			    	<form class="layui-form" action="">
+
+						  <div class="layui-form-item">
+						    <label class="layui-form-label"><span>*</span>所属商品</label>
+						    <input type="text" name="title" required="required" placeholder="请选择" class="layui-input" id="choose" readonly="readonly">
+						  </div>
+						  
+						  <div class="layui-form-item">
+						    <label class="layui-form-label"><span>*</span>商品名称</label>
+						      <input type="text" name="username" required="required" class="layui-input">
+						  </div>	
+						  
+ 							<div class="layui-form-item">
+						    <div class="layui-inline">
+						      <label class="layui-form-label"><span>*</span>售卖方式</label>
+						      <select name="choose" required="required" class="layui-input" id="choose" onchange="showImage(parseInt(this.value));">							        
+						        <option value="1" selected>按份</option>
+						        <option value="2">按人</option>
+						      </select>
+						    </div>
+						  </div>
+						  <!--按份-->
+						  <div class="layui-form-item several">
+							  <div class="layui-form-item">
+							    <div class="layui-inline">
+							      <label class="layui-form-label"><span>*</span>每份成人数</label>
+							      <input type="text" class="layui-input" />
+							    </div>						    
+							  </div>
+							  <div class="layui-form-item  ">
+							    <div class="layui-inline">
+							      <label class="layui-form-label"><span>*</span>每份儿童数</label>
+							      <input type="text" class="layui-input" />
+							    </div>
+							  </div>
+						  </div>
+						  <!--按人-->
+						  <div class="layui-form-item according">
+							  <div class="layui-form-item">
+							    <div class="layui-inline">
+							      <label class="layui-form-label"><span>*</span>房间最大入住数</label>
+							      <input type="text" class="layui-input" />
+							    </div>						    
+							  </div>
+						  </div>
+						  
+						  
+              <div class="layui-form-item">
+						    <label class="layui-form-label"><span>*</span>最大订购数量</label>
+						    <input type="text" required="required" class="layui-input">
+						  </div>
+						  
+						  <div class="layui-form-item">
+						    <label class="layui-form-label"><span>*</span>最小订购数量</label>
+						    <input type="text" required="required" class="layui-input">
+						  </div>
+						  
+ 
+						  <div class="layui-form-item">
+						    <label class="layui-form-label"><span>*</span>是否可退</label>
+						    <input type="radio" name="refund" value="可退" checked="">可退
+						    <input type="radio" name="refund" value="不可退">不可退						    
+						  </div>
+						  
+						  <div class="layui-form-item clearfix">
+						  	<label class="layui-form-label"><span>*</span>预订限制</label>
+						  	<div class="fl"style="width: 80%;">
+						  		<div style="margin-bottom: 20px;">
+						  			<input type="radio" name="limits"/>用户任意时间购买均可使用
+						  		</div>
+						  		<div style="margin-bottom: 20px;">
+						  			<input type="radio" name="limits"/>游客需提前<input type="text" />小时<input type="text" />分购买，方可购买
+						  		</div>
+						  		<div>
+						  			<input type="radio" name="limits"/>游客需在游玩<input type="text" />的<input type="text" />点<input type="text" />分前购买，方可使用
+						  		</div>
+						  	</div>
+						  </div>
+						 
+							<div class="layui-form-item">
+								<label class="layui-form-label"><span>*</span>退改说明</label>
+								<textarea name="" rows="5" cols="110"></textarea>
+							</div>
+							
+							<div class="layui-form-item">
+								<label class="layui-form-label"><span>*</span>起价说明</label>
+								<textarea name="" rows="5" cols="110"></textarea>
+							</div>
+							
+							<div class="layui-form-item">
+								<label class="layui-form-label"><span>*</span>儿童价说明</label>
+								<textarea name="" rows="5" cols="110"></textarea>
+							</div>
+	
+				
+			    	</form>
+			    	<div class="layui-form-item center">
+						  <button class="layui-btn next_btn" >下一页</button>						      
+						</div>						
+			    </div>
+
+			  	
+			  	<!--团期/价格-->
+			  	<div class="layui-tab-item layui-show"  data-index="1">
+			  		<form action="" class="layui-form">
+
+						  <div class="layui-form-item">
+						    <label class="layui-form-label" style="width: 70px;"><span>*</span>原价</label>
+						    <input type="text" name="price_min" lay-verify="required" autocomplete="off" class="layui-input">
+						  	<span>元</span>
+						  </div>
+
+							<div class="row">
+								<div class="layui-form-item">
+							    <label class="layui-form-label" style="width: 70px;"><span>*</span>起止日期</label>
+							    <input type="text" name="price_min" lay-verify="required" autocomplete="off" class="layui-input">
+							  	<span>-</span>
+							  	<input type="text" name="price_min" lay-verify="required" autocomplete="off" class="layui-input">
+							  	<div class="chooseweek">
+								  		<input type="checkbox" name="week" value="全部日期" />全部日期
+											<input type="checkbox" name="week" value="星期一" />星期一
+											<input type="checkbox" name="week" value="星期二" />星期二
+											<input type="checkbox" name="week" value="星期三" />星期三
+											<input type="checkbox" name="week" value="星期四" />星期四
+											<input type="checkbox" name="week" value="星期五" />星期五
+											<input type="checkbox" name="week" value="星期六" />星期六
+											<input type="checkbox" name="week" value="星期日" />星期日
+							  	</div>
+								</div>
+							  
+							  <div class="layui-form-item">
+							  	<div class="severalitem">
+										<ul class="price">
+							  			<li><span>销售价</span><input type="text" class="layui-input"/></li>
+							  			<li><span>结算价</span><input type="text" class="layui-input" /></li>
+							  			<li><span>库存</span><input type="text"class="layui-input" /></li>
+							  	</ul>
+									</div>
+							  	
+									<div class="accordingitem">
+										<ul class="price">
+							  			<li><span>成人价</span><input type="text" class="layui-input"/></li>
+							  			<li><span>成人结算价</span><input type="text" class="layui-input" /></li>
+							  			<li><span>库存</span><input type="text"class="layui-input" /></li>
+							  		</ul>
+							  		<ul class="price">
+							  			<li><span>儿童价</span><input type="text"class="layui-input" /></li>
+							  			<li><span>儿童结算价</span><input type="text" class="layui-input"/></li>
+							  			<li><span>库存</span><input type="text" class="layui-input"/></li>
+							  		</ul>
+							  		<ul class="price">
+							  			<li><span>单房差</span><input type="text"class="layui-input" /></li>
+							  		</ul>	
+									</div>
+							  		
+							  		
+							  		<button class="layui-btn fr" style="margin-right: 50px;background: #F5B12D;" id="btnBatch">批量添加</button>
+							  </div>
+
+
+							 </div>
+						    
+						  <div class="layui-form-item">
+						  	<div id='calendar'></div>
+						  </div>
+
+			  		</form>
+			  		
+				  		<div class="layui-form-item center">
+				  			 <button class="layui-btn prev_btn">上一页</button>
+				  			 <button class="layui-btn next_btn">下一页</button>
+				  		</div>
+			  	</div>
+			 
+			 		<!--其他信息-->
+			  	<div class="layui-tab-item " data-index="2">
+			  		<form action="" class="layui-form">
+			  			
+			  			<div class="layui-form-item messchoose">
+						    <label class="layui-form-label"><span>*</span>游玩人信息</label>
+						    <input type="radio" name="need" value="0" checked="checked" />需要全部游玩人信息 
+								<input type="radio" name="need" value="1" />只需一位游玩人信息 						
+								<input type="radio" name="need" value="2" />不需要任何游玩人信息 
+						  </div>
+						  
+						  <div class="layui-form-item usermess">
+						  	<div style="margin-left: 100px;border: 1px solid #ddd;width: 70%;padding: 10px;">
+							  	<p style="color: #F5B12D;">若不需要游玩人信息，订单量增加20%，用户填写的信息越少，下单转化越高</p>
+							  	<ul class="messlist">
+							  		<li>
+							  			<span>身份信息：</span>
+							  			<input type="checkbox" name="mess" value="姓名"/>姓名
+							  			<input type="checkbox" name="mess" value="手机号"/>手机号
+							  		</li>
+							  		<li>
+							  			<span>其他信息：</span>
+							  			<input type="checkbox" name="mess" value="英文名"/>英文名
+							  			<input type="checkbox" name="mess" value="邮箱"/>邮箱
+							  			<input type="checkbox" name="mess" value="证件"/>证件
+							  			<input type="checkbox" name="mess" value="性别"/>性别
+							  			<input type="checkbox" name="mess" value="生日"/>生日
+							  		</li>
+							  	</ul>
+						  	</div>
+						  </div>
+						  
+						  
+						  <div class="layui-form-item">
+						    <label class="layui-form-label"><span>*</span>紧急联系人</label>
+						    <input type="radio" name="neepeo" value="需要" checked="checked" />需要 
+								<input type="radio" name="needpeo" value="不需要" />不需要
+						  </div>
+						  
+						  <div class="layui-form-item">
+						    <label class="layui-form-label"><span>*</span>联系人邮箱</label>
+						    <input type="radio" name="needemail" value="需要" checked="checked" />需要 
+								<input type="radio" name="needemail" value="不需要" />不需要
+						  </div>
+						 
+			  		</form>
+			  		
+			  		<div class="layui-form-item center">
+			  			 <button class="layui-btn prev_btn">上一页</button>
+			  		</div>
+			  	</div>
+			  	
+			  </div>
+			</div>
+
+   
+   
+   	<!--弹框-->
+   <div id="showmask">	
+   
+      <div class="showmask" >
+   			<div class="productchoose clearfix">
+   				<div class="fl shu"></div>
+   				<div class="fl tit">产品选择</div>
+   			</div>
+   			<div class="content">
+   				<div class="" style="width: 50%;">
+		        <input type="text" class="layui-input" placeholder="产品ID/产品名称">
+ 				    <button class="layui-btn search">搜索</button>
+ 				  </div>
+ 				  
+   				<div class="tables ">
+   				  <table style="width: 100%;">
+					      <tr>
+					        <th style="width: 40%;">产品ID</th>
+					        <th style="width: 60%;">商品名称</th>
+					      </tr> 
+					      <tr>
+					        <td>贤心</td>
+					        <td>汉族</td>
+					      </tr>
+					     <tr>
+					        <td>贤心</td>
+					        <td>汉族</td>
+					      </tr>
+					      <tr>
+					        <td>贤心</td>
+					        <td>汉族</td>
+					      </tr>
+					      <tr>
+					        <td>贤心</td>
+					        <td>汉族</td>
+					      </tr>
+					      <tr>
+					        <td>贤心</td>
+					        <td>汉族</td>
+					      </tr>
+					      <tr>
+					        <td>贤心</td>
+					        <td>汉族</td>
+					      </tr>
+					      <tr>
+					        <td>贤心</td>
+					        <td>汉族</td>
+					      </tr>
+					  </table>
+
+   				</div>
+   			
+   			  
+   			</div>
+   			<div style="margin: 20px 0;" class="center">
+   			  	<button class="layui-btn cancle" >取消</button>
+   				  <button class="layui-btn sure">确定</button>
+   			  </div>
+   	</div>
+  </div>
+  </body>
+
+</html>

@@ -13,7 +13,7 @@ $(function(){
   		$(this).addClass('layui-this').siblings().removeClass('layui-this');
   		var index = $(this).index();
   		$('.layui-tab-content .layui-tab-item:eq('+index+')').addClass('layui-show').siblings().removeClass('layui-show')
-  	
+  		showPrice();
   	});
   	
 //	上下页切换
@@ -23,6 +23,8 @@ $(function(){
 		parent.prev().addClass('layui-show').siblings().removeClass('layui-show');
 	    var index = parseInt(parent.attr('data-index'))-1;
 	    $('.layui-tab-title li:eq('+index+')').addClass('layui-this').siblings().removeClass('layui-this');
+		showPrice();
+
 	});
 	
 //	下一页
@@ -31,10 +33,25 @@ $(function(){
 		parent.next().addClass('layui-show').siblings().removeClass('layui-show');
 		var index = parseInt(parent.attr('data-index'))+1;
 	    $('.layui-tab-title li:eq('+index+')').addClass('layui-this').siblings().removeClass('layui-this');
-	
-		validselfEvent();
-		
+		showPrice();
 	});
+	
+	
+	
+	var radio=$('.messchoose input[name="need"]');
+	radio.change(function(){
+	     var  isclient = $(this).val();
+	      if(isclient=='2'){
+	      	$('.usermess').hide()
+	      }else{
+	      	$('.usermess').show()
+	      }
+	  });
+	
+	
+	
+	
+	
 	var eventArr=[{"start":"2018-03-01 00:00:00","title":"0|20.0|18.0|2018-3-29"},
 	    {"start":"2018-03-02 00:00:00","title":"0|20.0|18.0|2018-3-30"},
 		{"start":"2018-03-03 00:00:00","title":"0|20.0|18.0|2018-3-31"},
@@ -73,7 +90,22 @@ $(function(){
 	$("#btnBatch").click(function(){
 		$('#calendar').fullCalendar('refetchEvents');
 	})
+	
 })
+//	按人/按份选择  
+function showImage(val){
+	if(val=='1'){
+		$('.several').show();
+		$('.according').hide();
+		localStorage.several='several';
+		localStorage.removeItem('according');
+	}else if(val=='2'){
+		$('.several').hide();
+		$('.according').show();
+		localStorage.according='according';
+		localStorage.removeItem('several');
+	}
+}
 
  function getEvents(start,end){
 	var eventArr=[{"start":"2018-03-01 00:00:00","title":"0|20.0|18.0|2018-3-29"},
@@ -86,3 +118,14 @@ $(function(){
 	}
 	return eventArr;
 } 
+//按人/按份价格显示
+function showPrice(){
+	//		按人
+		if(localStorage.according){
+			$('.accordingitem').show();
+			$('.severalitem').hide();
+		}else if(localStorage.several){
+			$('.accordingitem').hide();
+			$('.severalitem').show();
+		}
+}
