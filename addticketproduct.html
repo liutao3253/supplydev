@@ -8,28 +8,342 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
 
-    <link rel="stylesheet" href="./css/font.css">
-    <link rel="stylesheet" href="./css/xadmin.css">
-    <link rel="stylesheet" href="./css/layui.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/easyui.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/fullcalendar.css" />
     <link rel="stylesheet" href="./css/addticketproduct.css">
     <script type="text/javascript" src="./js/jquery-1.8.3.min.js"></script>
-    <script type="text/javascript" src="./lib/layui/layui.js" charset="utf-8"></script>
-    <script type="text/javascript" src="./js/xadmin.js"></script>
+    <script type="text/javascript" src="./js/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="./js/moment.min.js"></script>
+    <script type="text/javascript" src="./js/fullcalendar.min.js"></script>
+    <script type="text/javascript" src="./js/fullcalendar_zh-cn.js"></script>
+    <script type="text/javascript" src="./js/underscore.js"></script>
     <script type="text/javascript" src="./js/addticketproduct.js"></script>
   </head>
   
   <body>
     <div class="x-nav">
       <span class="layui-breadcrumb">
-        <a href="index.html">商品管理</a>
-        <a href="ticketproduct.html">门票产品</a>
+        <a href="">商品管理</a>
+        <a href="ticketgoods.html">门票产品</a>
         <a><cite>添加新产品</cite></a>
       </span>
     </div>
-    <div class="x-body">
-dsfdsfdsfsdf
+    
+    <div class="x-body clearfix">
+			<div class="operate fr">
+				<span><img src="" alt="" />返回</span>
+				<span style="font-size: 20px;">|</span>
+				<span><img src="" alt="" />查看商品</span>	
+				<span style="font-size: 20px;">|</span>
+				<span><img src="" alt="" />预览</span>
+				<button class="layui-btn layui-btn-small save">保存</button>
+				<button class="layui-btn layui-btn-small submit">提交</button>
+				
+			</div>
+		</div>
+				
+			<!--tab页-->
+			<div class="layui-tab">
+			  <ul class="layui-tab-title">
+			    <li class="layui-this">基本信息</li>
+			    <li>详细信息</li>				    	
+			  </ul>
+			  <div class="layui-tab-content">
+			  	
+			  		
+			  	<!--基本信息-->
+			    <div class="layui-tab-item  " data-index="0">
+			    	<form class="layui-form" action="">
 
-    </div>
+						  <div class="layui-form-item">
+						    <label class="layui-form-label"><span>*</span>景区名称</label>
+						    <input type="text" name="title" required="required" class="layui-input">
+						  </div>
+						  
+						  <div class="layui-form-item">
+						    <div class="layui-inline">
+						      <label class="layui-form-label"><span>*</span>景区地址</label>
+						      <select name="quiz1" required="required" class="layui-input">
+						      	<option value="请选择" selected="selected">请选择</option>
+						        <option value="北京" >北京</option>
+						      </select>
+						      <select name="quiz2" required="required" class="layui-input">
+						      	<option value="请选择" selected="selected">请选择</option>
+						        <option value="海淀" >海淀</option>
+						      </select>
+						      <select name="quiz3" required="required" class="layui-input">
+						      	<option value="请选择" selected="selected">请选择</option>
+						        <option value="海淀" >海淀</option>
+						      </select>
+						      <input type="text" name="title" required="required" class="layui-input">
+						    </div>
+						  </div>
+						  
+              <div class="layui-form-item">
+						    <label class="layui-form-label"><span>*</span>营业时间</label>
+						    <div class="clearfix addressitem" style="width: 80%;margin-left: 110px;">
+						    	<div class="address">
+							    	<input type="text" required="required" ><span>-</span>
+							    	<input type="text" required="required" >
+							    	<input type="text" required="required" >
+							    	<!--<img src="./images/close.png" alt="" class="closeitem" />-->
+							    </div>
+							    <div style="color: #159BE8;" class="additem"><img src="./images/add.png" alt="" />添加时间</div>
+						    </div>
+						    
+						  </div>
+						  
+ 							<div class="layui-form-item">
+						    <div class="layui-inline" >
+						      <label class="layui-form-label"><span>*</span>景区级别</label>
+						      <ul class="travel">
+						      	<li class="active">AAAAA</li>
+						      	<li>AAAA</li>
+						      	<li>AAA</li>
+						      	<li>AA</li>
+						      	<li>A</li>
+						      	<li>无评级</li>
+						      </ul>
+						    </div>
+						  </div>
+						  
+						  <div class="layui-form-item">
+						    <div class="layui-inline" >
+						      <label class="layui-form-label"><span>*</span>景区简介</label>
+						      <textarea name="" rows="5" cols="100"></textarea>
+						    </div>
+						  </div>
+						  
+						  <div class="layui-form-item">
+						    <label class="layui-form-label"><span>*</span>产品名称</label>
+						    <input type="text" name="title" required="required" class="layui-input">
+						  </div>
+						  
+						  <div class="layui-form-item clearfix">
+						    <label class="layui-form-label "><span>*</span>产品图片</label>
+						    <div class="fl " style="width: 80%;">
+						    	<span style="color: #ABACAC;">可用图片格式：<i style="color: #4FABEB;font-style: normal;">jpg、jpeg、png、bmp</i>,文件大小<i style="color: #4FABEB;font-style: normal;">小于100kb</i>，建议图片长宽比例<i style="color: #4FABEB;font-style: normal;">365 x 325px</i>(如图片过大请压缩后上传)</span>
+							    <ul class="addimg product">
+							    	<li>
+							    		<input type = "file" id="myFile" accept="image/*"/>
+											<div class="myBtn">
+												<img src="./images/update.png" alt="" class="addimgs" />
+												<div class="zhez">
+													<div class="title">设为主图</div>
+													<div class="modify">修改</div>
+												</div>
+												<div class="figure">主图</div>
+											</div>
+							    	</li>
+							    	<li>
+							    		<input type = "file" id="myFile" accept="image/*"/>
+											<div class="myBtn">
+												<img src="./images/update.png" alt="" class="addimgs" />
+												<div class="zhez">
+													<div class="title">设为主图</div>
+													<div class="modify">修改</div>
+												</div>
+												<div class="figure">主图</div>
+											</div>
+											
+							    	</li>
+							    	<li>
+							    		<input type = "file" id="myFile" accept="image/*"/>
+											<div class="myBtn">
+												<img src="./images/update.png" alt="" class="addimgs" />
+												<div class="zhez">
+													<div class="title">设为主图</div>
+													<div class="modify">修改</div>
+												</div>
+												<div class="figure">主图</div>
+											</div>
+							    	</li>
+							    	<li>
+							    		<input type = "file" id="myFile" accept="image/*"/>
+											<div class="myBtn">
+												<img src="./images/update.png" alt="" class="addimgs" />
+												<div class="zhez">
+													<div class="title">设为主图</div>
+													<div class="modify">修改</div>
+												</div>
+												<div class="figure">主图</div>
+											</div>
+							    	</li>
+							    	<li>
+							    		<input type = "file" id="myFile" accept="image/*"/>
+											<div class="myBtn">
+												<img src="./images/update.png" alt="" class="addimgs" />
+												<div class="zhez">
+													<div class="title">设为主图</div>
+													<div class="modify">修改</div>
+												</div>
+												<div class="figure">主图</div>
+											</div>
+							    	</li>
+							    	
+							    	
+							    </ul>	
+						    </div>
+						    		    
+						  </div>
+						 
+						  <div class="layui-form-item">
+						    <label class="layui-form-label"><span>*</span>产品简介</label>
+						    <textarea name="" rows="5" cols="100"></textarea>
+						  </div>
+ 					
+ 							<div class="layui-form-item clearfix">
+						    <label class="layui-form-label">服务保障</label>
+					    	<div class="choosetheme fl">
+							  		<input type="checkbox" name="theme" value="保证入园" />保证入园
+										<input type="checkbox" name="theme" value="快速入园" />快速入园
+						  	</div>
+
+						  </div>
+ 					
+ 						  <div class="layui-form-item clearfix">
+						    <label class="layui-form-label"><span>*</span>主题标签</label>
+					    	<div class="choosetheme fl">
+							  		<input type="checkbox" name="theme" value="主题乐园" />主题乐园
+										<input type="checkbox" name="theme" value="亲子游" />亲子游
+										<input type="checkbox" name="theme" value="动植物园" />动植物园
+										<input type="checkbox" name="theme" value="博物馆" />博物馆
+										<input type="checkbox" name="theme" value="古迹遗址" />古迹遗址
+										<input type="checkbox" name="theme" value="团队拓展" />团队拓展
+										<input type="checkbox" name="theme" value="宗教祈福" />宗教祈福
+										<input type="checkbox" name="theme" value="主题乐园" />主题乐园
+										<input type="checkbox" name="theme" value="亲子游" />亲子游
+										<input type="checkbox" name="theme" value="动植物园" />动植物园
+										<input type="checkbox" name="theme" value="博物馆" />博物馆
+										<input type="checkbox" name="theme" value="古迹遗址" />古迹遗址
+										<input type="checkbox" name="theme" value="团队拓展" />团队拓展
+										<input type="checkbox" name="theme" value="宗教祈福" />宗教祈福
+										<input type="checkbox" name="theme" value="主题乐园" />主题乐园
+										<input type="checkbox" name="theme" value="亲子游" />亲子游
+										<input type="checkbox" name="theme" value="动植物园" />动植物园
+										<input type="checkbox" name="theme" value="博物馆" />博物馆
+										<input type="checkbox" name="theme" value="古迹遗址" />古迹遗址
+										<input type="checkbox" name="theme" value="团队拓展" />团队拓展
+										<input type="checkbox" name="theme" value="宗教祈福" />宗教祈福
+						  	</div>
+
+						  </div>
+ 
+
+			    	</form>
+			    	<div class="layui-form-item center">
+						  <button class="layui-btn next_btn" >下一页</button>						      
+						</div>
+						
+			    </div>
+			  
+			  	<!--详细信息-->
+			  	<div class="layui-tab-item layui-show" data-index="1">
+			  		<!--<form action="" class="layui-form">-->
+			  			
+			  			<div class="layui-form-item clearfix">
+						    <label class="layui-form-label"><span>*</span>亮点特色</label>
+						    <textarea name="" rows="5" cols="100"></textarea>
+						  </div>
+						 
+						  <div class="layui-form-item clearfix">
+						    <label class="layui-form-label"><span>*</span>免费政策</label>
+					    	<div class="choosetheme fl">
+							  		<input type="checkbox" name="theme" value="保证入园" />保证入园
+										<input type="checkbox" name="theme" value="快速入园" />快速入园
+						  	</div>
+						  </div>
+
+							<div class="layui-form-item clearfix">
+						    <label class="layui-form-label"><span>*</span>优惠人群</label>
+					    	<div class="choosetheme fl">
+							  		<input type="checkbox" name="theme" value="主题乐园" />主题乐园
+										<input type="checkbox" name="theme" value="亲子游" />亲子游
+										<input type="checkbox" name="theme" value="动植物园" />动植物园
+										<input type="checkbox" name="theme" value="博物馆" />博物馆
+										<input type="checkbox" name="theme" value="古迹遗址" />古迹遗址
+										<input type="checkbox" name="theme" value="团队拓展" />团队拓展
+										<input type="checkbox" name="theme" value="宗教祈福" />宗教祈福
+										<input type="checkbox" name="theme" value="主题乐园" />主题乐园
+										<input type="checkbox" name="theme" value="亲子游" />亲子游
+										<input type="checkbox" name="theme" value="动植物园" />动植物园
+										<input type="checkbox" name="theme" value="博物馆" />博物馆
+										<input type="checkbox" name="theme" value="古迹遗址" />古迹遗址
+										<input type="checkbox" name="theme" value="团队拓展" />团队拓展
+										<input type="checkbox" name="theme" value="宗教祈福" />宗教祈福
+										<input type="checkbox" name="theme" value="主题乐园" />主题乐园
+										<input type="checkbox" name="theme" value="亲子游" />亲子游
+										<input type="checkbox" name="theme" value="动植物园" />动植物园
+										<input type="checkbox" name="theme" value="博物馆" />博物馆
+										<input type="checkbox" name="theme" value="古迹遗址" />古迹遗址
+										<input type="checkbox" name="theme" value="团队拓展" />团队拓展
+										<input type="checkbox" name="theme" value="宗教祈福" />宗教祈福
+						  	</div>
+
+						  </div>
+						  
+						  <div class="layui-form-item clearfix">
+						    <label class="layui-form-label"><span>*</span>重要说明</label>
+						    <textarea name="" rows="5" cols="100"></textarea>
+						  </div>
+						  
+						  <div class="layui-form-item clearfix">
+						    <label class="layui-form-label"><span>*</span>景点信息</label>
+						    <div class="tables">
+						    	<table>
+						    		<tr><th>序号</th>
+						    		<th>景点名称</th>
+						    		<th>景点介绍</th>
+						    		<th>景点图片</th>
+						    		<th>操作</th></tr>
+						    		
+						    		<tr class="item"><td style="width: 50px;">1</td>
+						    		<td><input type="text" /></td>
+						    		<td><textarea name="" rows="5" cols="40"style="line-height: 20px;"></textarea></td>
+						    		<td>
+						    			<input type = "file" id="myFile" accept="image/*"/>
+						    			<div class="chooseimg">
+						    				选择图片
+						    				<!--<p class="modifyitem">修改</p>-->
+						    			</div>
+						    		</td>
+						    		<td style="width: 50px;" class="delitem">删除</td></tr>
+						    		
+						    	</table>
+						    	<div class="addscree">添加景点</div>
+						    </div>
+						  </div>
+						
+
+			  		<!--</form>-->
+			  		
+			  		<div class="layui-form-item center">
+			  			 <button class="layui-btn prev_btn">上一页</button>
+			  			 <button class="layui-btn next_btn">下一页</button>
+			  		</div>
+			  	</div>
+			  	
+			  	
+			  </div>
+			</div>
+
+
   </body>
+	<script type="text/template" id="tpl">
+		<%{%>
+			<tr class="item">
+				<td style="width: 50px;"><%= index%></td>
+				<td><input type="text" /></td>
+				<td><textarea name="" rows="5" cols="40"style="line-height: 20px;"></textarea></td>
+				<td>
+					<input type = "file" id="myFile" accept="image/*"/>
+					<div class="chooseimg">选择图片</div>
+				</td>
+				<td style="width: 50px;"class="delitem">删除</td>
+		</tr>
+		<%}%>
+	</script>
 
 </html>

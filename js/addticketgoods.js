@@ -33,8 +33,14 @@ $(function(){
 	    $('.layui-tab-title li:eq('+index+')').addClass('layui-this').siblings().removeClass('layui-this');
 	
 		validselfEvent();
+		
 	});
-	
+	var eventArr=[{"start":"2018-03-01 00:00:00","title":"0|20.0|18.0|2018-3-29"},
+	    {"start":"2018-03-02 00:00:00","title":"0|20.0|18.0|2018-3-30"},
+		{"start":"2018-03-03 00:00:00","title":"0|20.0|18.0|2018-3-31"},
+		{"start":"2018-03-04 00:00:00","title":"0|20.0|18.0|2018-3-31"},
+		{"start":"2018-03-05 00:00:00","title":"0|20.0|18.0|2018-3-31"},
+		{"start":"2018-03-06 00:00:00","title":"0|20.0|18.0|2018-3-31"}];
 //	价格日历
 	$('#calendar').fullCalendar({
 		header : {
@@ -50,22 +56,34 @@ $(function(){
 		monthNames :['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'],
 		dayNames: ['周日','周一','周二','周三','周四','周五','周六'],
 		eventClick : function(event, jsEvent, view) {
-			
+		
 		},
 		eventRender: function (event, element) {
 			var inputs = '结算价<input type="" name="" id="" value="" />';
             element.html(inputs);
 		},
-		events:[
-		{"start":"2018-03-01 00:00:00","title":"0|20.0|18.0|2018-3-29"},
-	    {"start":"2018-03-02 00:00:00","title":"0|20.0|18.0|2018-3-30"},
-		{"start":"2018-03-03 00:00:00","title":"0|20.0|18.0|2018-3-31"},
-		{"start":"2018-03-04 00:00:00","title":"0|20.0|18.0|2018-3-31"},
-		{"start":"2018-03-05 00:00:00","title":"0|20.0|18.0|2018-3-31"},
-		{"start":"2018-03-06 00:00:00","title":"0|20.0|18.0|2018-3-31"}],
+		events: function(start, end, timezone, callback)
+		{
+			var events=getEvents(start,end);
+		  	callback(events);
+		}
 		
-
 	});
+	function getEvents(start,end)
+	{
+		var eventArr=[{"start":"2018-03-01 00:00:00","title":"0|20.0|18.0|2018-3-29"},
+	    {"start":"2018-03-02 00:00:00","title":"0|20.0|18.0|2018-3-30"},
+		{"start":"2018-03-03 00:00:00","title":"0|20.0|18.0|2018-3-31"}
+		];
+		if(end>3)
+		{
+			eventArr.push({"start":"2018-04-01 00:00:00","title":"0|20.0|18.0|2018-3-29"});
+		}
+		return eventArr;
+	}
+	$("#btnBatch").click(function(){
+		$('#calendar').fullCalendar('refetchEvents');
+	})
 })
 
   
