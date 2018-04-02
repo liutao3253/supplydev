@@ -9,14 +9,20 @@
     <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
 
     <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">  
+    <link rel="stylesheet" href="./css/fullcalendar.css">
+    <link rel="stylesheet" href="./css/bootstrap-datetimepicker.min.css" />
     <link rel="stylesheet" href="./css/easyui.css">
-    <link rel="stylesheet" href="./css/fullcalendar.css" />
     <link rel="stylesheet" href="./css/addtravelgoods.css">
-    <script type="text/javascript" src="./js/jquery-1.8.3.min.js"></script>
+    
+    <script type="text/javascript" src="./js/jquery-1.8.3.min.js"></script>  
     <script type="text/javascript" src="./js/jquery.easyui.min.js"></script>
     <script type="text/javascript" src="./js/moment.min.js"></script>
+    <script type="text/javascript" src="./js/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="./js/bootstrap-datetimepicker.zh-CN.js"></script>
     <script type="text/javascript" src="./js/fullcalendar.min.js"></script>
     <script type="text/javascript" src="./js/fullcalendar_zh-cn.js"></script>
+    <script type="text/javascript" src="./js/common.js"></script>
     <script type="text/javascript" src="./js/addtravelgoods.js"></script>
   </head>
   
@@ -164,28 +170,28 @@
 
 							<div class="row">
 								<div class="layui-form-item">
-							    <label class="layui-form-label" style="width: 70px;"><span>*</span>起止日期</label>
-							    <input type="text" name="price_min" lay-verify="required" autocomplete="off" class="layui-input">
+							    <label class="layui-form-label"><span>*</span>起止日期</label>
+							    <input type="text" class="layui-input" id="saledatestart">
 							  	<span>-</span>
-							  	<input type="text" name="price_min" lay-verify="required" autocomplete="off" class="layui-input">
+							  	<input type="text" class="layui-input" id="saledateend">
 							  	<div class="chooseweek">
-								  		<input type="checkbox" name="week" value="全部日期" />全部日期
-											<input type="checkbox" name="week" value="星期一" />星期一
-											<input type="checkbox" name="week" value="星期二" />星期二
-											<input type="checkbox" name="week" value="星期三" />星期三
-											<input type="checkbox" name="week" value="星期四" />星期四
-											<input type="checkbox" name="week" value="星期五" />星期五
-											<input type="checkbox" name="week" value="星期六" />星期六
-											<input type="checkbox" name="week" value="星期日" />星期日
+								  		<input type="checkbox" name="week" value="0" />全部日期
+											<input type="checkbox" name="week" value="1" />星期一
+											<input type="checkbox" name="week" value="2" />星期二
+											<input type="checkbox" name="week" value="3" />星期三
+											<input type="checkbox" name="week" value="4" />星期四
+											<input type="checkbox" name="week" value="5" />星期五
+											<input type="checkbox" name="week" value="6" />星期六
+											<input type="checkbox" name="week" value="7" />星期日
 							  	</div>
 								</div>
 							  
 							  <div class="layui-form-item">
 							  	<div class="severalitem">
-										<ul class="price">
-							  			<li><span>销售价</span><input type="text" class="layui-input"/></li>
-							  			<li><span>结算价</span><input type="text" class="layui-input" /></li>
-							  			<li><span>库存</span><input type="text"class="layui-input" /></li>
+										<ul class="price" id="severalitem">
+							  			<li><span>销售价</span><input type="text" class="layui-input salesPrice"/></li>
+							  			<li><span>结算价</span><input type="text" class="layui-input setPrice" /></li>
+							  			<li><span>库存</span><input type="text"class="layui-input stock" /></li>
 							  	</ul>
 									</div>
 							  	
@@ -206,7 +212,7 @@
 									</div>
 							  		
 							  		
-							  		<button class="layui-btn fr" style="margin-right: 50px;background: #F5B12D;" id="btnBatch">批量添加</button>
+							  		<button class="layui-btn fr" style="margin-right: 50px;background: #F5B12D;" id="btnBatch" type="button">批量添加</button>
 							  </div>
 
 
