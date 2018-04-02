@@ -25,10 +25,10 @@
 .layui-tab-title{padding: 0;margin-bottom: 40px;}
 .layui-form-item{margin-bottom: 20px;}
 .layui-form-label {
-	display: block;
-	float: left;
+	/*display: block;*/
+	/*float: left;*/
     padding: 9px 15px;
-    width: 110px;
+    width: 140px;
     font-weight: 400;
     text-align: right;
 }

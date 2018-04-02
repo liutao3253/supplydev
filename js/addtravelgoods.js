@@ -51,18 +51,8 @@ $(function(){
 	
 	// 初始化时间
 	initDatepicker('saledatestart');
-//	showDate('saledatestart');	
 	initDatepicker('saledateend');
-//	showDate('saledateend');
 	
-	
-	
-//	var eventArr=[{"start":"2018-03-01 00:00:00","title":"0|20.0|18.0|2018-3-29"},
-//	    {"start":"2018-03-02 00:00:00","title":"0|20.0|18.0|2018-3-30"},
-//		{"start":"2018-03-03 00:00:00","title":"0|20.0|18.0|2018-3-31"},
-//		{"start":"2018-03-04 00:00:00","title":"0|20.0|18.0|2018-3-31"},
-//		{"start":"2018-03-05 00:00:00","title":"0|20.0|18.0|2018-3-31"},
-//		{"start":"2018-03-06 00:00:00","title":"0|20.0|18.0|2018-3-31"}];
 //	价格日历
 	$('#calendar').fullCalendar({
 		header : {
@@ -77,9 +67,18 @@ $(function(){
 		eventLimit : true, // allow "more" link when too many events
 		monthNames :['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'],
 		dayNames: ['周日','周一','周二','周三','周四','周五','周六'],
-		eventClick : function(event, jsEvent, view) {
 		
+		events: function(start, end, timezone, callback)
+		{
+		  	callback();
 		},
+		dayClick: function(date, allDay, jsEvent, view) {
+ 			console.log(date, allDay, jsEvent, view);
+	    },
+//		eventClick : function(event, jsEvent, view) {
+//			
+//		 
+//		},
 		eventRender: function (event, element) {
 			var inputs = '';
 			inputs +='销售价<input type="" name="" id="salesPrice" value="" />';
@@ -90,15 +89,10 @@ $(function(){
             element.children('input#setPrice').val(event.setPrice);
             element.children('input#stock').val(event.stock);
 		},
-		events: function(start, end, timezone, callback)
-		{
-//			var events=getEvents(start,end);
-		  	callback();
-		},
 
-		
 	});
-
+	
+//	批量插入
 	$("#btnBatch").click(function(){
 		
 //		判断是否有输入日期
@@ -117,12 +111,10 @@ $(function(){
             if(this.checked){
               weekArr.push($(this).val());
             }
-          })
-//  	console.log(weekArr)
+         })
 
 		copyText(saledatestart,saledateend,salesPrice,setPrice,stock,weekArr);
 		
-//		$('#calendar').fullCalendar('refetchEvents');
 	})
 	
 })
@@ -141,18 +133,7 @@ function showImage(val){
 	}
 }
 
-   function getEvents(start,end){
-// 	getDatediff(start,end);
-//	var eventArr=[{"start":"2018-03-01 00:00:00","title":"0|20.0|18.0|2018-3-29"},
-//  {"start":"2018-03-02 00:00:00","title":"0|20.0|18.0|2018-3-30"},
-//	{"start":"2018-03-03 00:00:00","title":"0|20.0|18.0|2018-3-31"}
-//	];
-//	if(end>3)
-//	{
-//		eventArr.push({"start":"2018-04-01 00:00:00","title":"0|20.0|18.0|2018-3-29"});
-//	}
-//	return eventArr;
-} 
+
 //按人/按份价格显示
 function showPrice(){
 	//		按人
@@ -167,24 +148,23 @@ function showPrice(){
 
 //批量插入数据
 function copyText(saledatestart,saledateend,salesPrice,setPrice,stock,weekArr){
-//计算日期差时
- var eventArr = getDatediff(saledatestart,saledateend,weekArr);
- 
- $.each(eventArr,function(i,o){
- 	o.salesPrice = salesPrice;
- 	o.setPrice = setPrice;
- 	o.stock = stock;
- })
- 
- 
- 
- var events = $('#calendar').fullCalendar('addEventSource', 
-  {
-      events: eventArr,
-      color: '#fff',     // an option!
-      textColor: '#000' // an option!
-    }
- );
+	//计算日期差时
+	 var eventArr = getDatediff(saledatestart,saledateend,weekArr);
+	 
+	 $.each(eventArr,function(i,o){
+	 	o.salesPrice = salesPrice;
+	 	o.setPrice = setPrice;
+	 	o.stock = stock;
+	 });
+	 
+	
+	 var events = $('#calendar').fullCalendar('addEventSource', 
+	  {
+	      events: eventArr,
+	      color: '#fff',     // an option!
+	      textColor: '#000' // an option!
+	    }
+	 );
         
 }
 
@@ -194,36 +174,46 @@ function copyText(saledatestart,saledateend,salesPrice,setPrice,stock,weekArr){
 * @param sDate2 结束日期 如：2016-11-02
 * @returns [Array] 返回相差天数
 */
-function getDatediff(sDate1,sDate2){
+function getDatediff(sDate1,sDate2,weekArr){
+	
 	var start = Date.parse(new Date(sDate1));
 	var end = Date.parse(new Date(sDate2));
 //	相差天数
 	var nDays = Math.abs(parseInt((end - start)/1000/3600/24));
 	
-	var eventArr=[{"start":sDate1}];
+	var eventArr=[];
 	var date = new Date(sDate1);
 	var enddate;
+	var startweek = date.getDay();
 	
+//	起始星期
+	$.each(weekArr,function(i,o){
+	  if(startweek==o){
+		eventArr.push({"start":sDate1});
+		}
+	})
+	
+//	结束星期
 	for(let i=0;i<nDays;i++){
 		
-		
 		date.setDate(date.getDate() + 1);
-		var month = parseInt(date.getMonth()) + 1;
-		month = month>9?month : '0'+month;
-		var day = date.getDate();
-		day = day>9 ? day:'0'+day;
-		enddate = date.getFullYear() + '-'+ month + '-'+ day;
-		eventArr.push({"start":enddate});
-		
-	}
+		var afterweek =date.getDay();
 
+		$.each(weekArr,function(i,o){
+			if(afterweek==o||o=='all'){
+				var month = parseInt(date.getMonth()) + 1;
+				month = month>9?month : '0'+month;
+				var day = date.getDate();
+				day = day>9 ? day:'0'+day;
+				enddate = date.getFullYear() + '-'+ month + '-'+ day;
+				eventArr.push({"start":enddate});
+			}
+			
+		});
+
+	}
+		
+	console.log(eventArr);
 	return  eventArr;
 	
-}
-/**
- * 星期赋值
- */
-function yLDay(departdatestr) {
-	var nowdate = new Date(departdatestr);
-	var week = weekDay[nowdate.getDay()];
 }

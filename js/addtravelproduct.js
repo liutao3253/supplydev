@@ -65,7 +65,7 @@ $(function(){
 	$('.product .myBtn .addimgs').click(function() {
 		$(this).parent().siblings().click();// 模拟文件上传按钮点击操作
         var self = $(this).parent().siblings();
-		self.on("change",function(){
+		self.on("change",function(){		
 			var objUrl = getObjectURL(this.files[0]) ; //获取图片的路径，该路径不是图片在本地的路径
 			if (objUrl) {
 			  self.siblings().children('img').attr("src", objUrl).css('width','100%').css('height','100%').removeClass('addimgs') ; //将图片路径存入src中，显示出图片
@@ -176,8 +176,8 @@ $(function(){
 			
 			$(this).parent().siblings().click();// 模拟文件上传按钮点击操作
 	        var self = $(this).parent().siblings();
-			self.on("change",function(){
-				var objUrl = getObjectURL(this.files[0]) ; //获取图片的路径，该路径不是图片在本地的路径
+			self.on("change",function(){			
+				var objUrl = getObjectURL(this.files[0]) ;
 				if (objUrl) {
 				  self.siblings().children('img').attr("src", objUrl).css('width','100%').css('height','100%');			
 				}
@@ -202,6 +202,9 @@ function getObjectURL(file) {
 	} else if (window.webkitURL!=undefined) { // webkit or chrome
 	   url = window.webkitURL.createObjectURL(file) ;
 	}
+
 	return url ;
+
+
 }
   
