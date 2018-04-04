@@ -107,7 +107,7 @@ $(function(){
 	
 //	批量插入
 	$("#btnBatch").click(function(){
-		
+
 //		判断是否有输入日期
 		var saledatestart = $('#saledatestart').val();
 		var saledateend = $('#saledateend').val();
@@ -154,7 +154,7 @@ function getValue(p){
 			
 		}
 	})
-	
+	console.log(salesPrice,setPrice,stock,index,eventArr);
 }
 //	按人/按份选择  
 function showImage(val){
@@ -187,42 +187,22 @@ function showPrice(){
 //批量插入数据
 function copyText(saledatestart,saledateend,salesPrice,setPrice,stock,weekArr){
 	//计算日期差时
-	 var eventArr = getDatediff(saledatestart,saledateend,weekArr);
+	 var eventArrs = getDatediff(saledatestart,saledateend,weekArr);
 	 
-	var new_arr=[]; 
-//	判断数组唯一
-	$.each(eventArr,function(i,o){
-		var items=o.start;　
-		
-		if(new_arr.length){
-			$.each(new_arr,function(item,val){
-				if(items != val.start){
-					new_arr.push(o);
-				}	
-			})
-		}else{
-			new_arr.push(o);
-		}
-		
-	})
-	eventArr=new_arr;
-
-	 
-	 $.each(eventArr,function(i,o){
+	 $.each(eventArrs,function(i,o){
 	 	o.salesPrice = salesPrice;
 	 	o.setPrice = setPrice;
 	 	o.stock = stock;
 	 });
 	 
-	
-	 var events = $('#calendar').fullCalendar('addEventSource', 
+	var events = $('#calendar').fullCalendar('addEventSource', 
 	  {
-	      events: eventArr,
+	      events: eventArrs,
 	      color: '#fff',     // an option!
 	      textColor: '#000' // an option!
 	    }
 	 );
-        
+      
 }
 
 /**
@@ -237,8 +217,7 @@ function getDatediff(sDate1,sDate2,weekArr){
 	var start = Date.parse(new Date(sDate1));
 	var end = Date.parse(new Date(sDate2));
 //	相差天数
-	var nDays = Math.abs(parseInt((end - start)/1000/3600/24));
-	
+	var nDays = Math.abs(parseInt((end - start)/1000/3600/24));	
 	
 	var date = new Date(sDate1);
 	var enddate;
@@ -246,7 +225,7 @@ function getDatediff(sDate1,sDate2,weekArr){
 	
 //	起始星期
 	$.each(weekArr,function(i,o){
-	  if(startweek==o){
+	  if(startweek==o||o=='all'){
 		eventArr.push({"start":sDate1});
 		}
 	})
@@ -266,11 +245,10 @@ function getDatediff(sDate1,sDate2,weekArr){
 				enddate = date.getFullYear() + '-'+ month + '-'+ day;
 				eventArr.push({"start":enddate});
 			}
-			
 		});
-		
 	}
 	
+	console.log(eventArr);
 	return  eventArr;
 	
 }
