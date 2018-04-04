@@ -68,19 +68,19 @@ $(function(){
 		eventLimit : true, // allow "more" link when too many events
 		monthNames :['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'],
 		dayNames: ['周日','周一','周二','周三','周四','周五','周六'],
-		select: function(start,end){
-			var title = prompt('Event Title:');
-			var eventData;
-			if(title){
-				eventData={
-					title:title,
-					start:start,
-					end:end
-				};
-				$('#calendar').fullCalendar('renderEventSource', eventData,true);
-			}
-			$('#calendar').fullCalendar('unselect');
-		},
+//		select: function(start,end){
+//			var title = prompt('Event Title:');
+//			var eventData;
+//			if(title){
+//				eventData={
+//					title:title,
+//					start:start,
+//					end:end
+//				};
+//				$('#calendar').fullCalendar('renderEventSource', eventData,true);
+//			}
+//			$('#calendar').fullCalendar('unselect');
+//		},
 		events: function(start, end, timezone, callback)
 		{
 		  	callback();
@@ -154,7 +154,7 @@ function getValue(p){
 			
 		}
 	})
-	console.log(salesPrice,setPrice,stock,index,eventArr);
+	
 }
 //	按人/按份选择  
 function showImage(val){
@@ -188,6 +188,25 @@ function showPrice(){
 function copyText(saledatestart,saledateend,salesPrice,setPrice,stock,weekArr){
 	//计算日期差时
 	 var eventArr = getDatediff(saledatestart,saledateend,weekArr);
+	 
+	var new_arr=[]; 
+//	判断数组唯一
+	$.each(eventArr,function(i,o){
+		var items=o.start;　
+		
+		if(new_arr.length){
+			$.each(new_arr,function(item,val){
+				if(items != val.start){
+					new_arr.push(o);
+				}	
+			})
+		}else{
+			new_arr.push(o);
+		}
+		
+	})
+	eventArr=new_arr;
+
 	 
 	 $.each(eventArr,function(i,o){
 	 	o.salesPrice = salesPrice;
@@ -234,8 +253,8 @@ function getDatediff(sDate1,sDate2,weekArr){
 	
 //	结束星期
 	for(let i=0;i<nDays;i++){
-		
-		date.setDate(date.getDate() + 1);
+
+		var afterday = date.setDate(date.getDate() + 1);
 		var afterweek =date.getDay();
 
 		$.each(weekArr,function(i,o){
@@ -249,10 +268,9 @@ function getDatediff(sDate1,sDate2,weekArr){
 			}
 			
 		});
-
-	}
 		
-	console.log(eventArr);
+	}
+	
 	return  eventArr;
 	
 }
