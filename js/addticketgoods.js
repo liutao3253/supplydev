@@ -76,22 +76,24 @@ $(function(){
 		}
 		
 	});
-
+	
 	$("#btnBatch").click(function(){
-		//判断是否有输入日期
-		var saledatestart = $('#saledatestart').val();
-		var saledateend = $('#saledateend').val();
-		var salesPrice = $('.salesPrice').val();
-        var weekArr = [];
-//      获取星期
-    	 $.each($('input[name=week]:checkbox'),function(){
-    	 	
-            if(this.checked){
-              weekArr.push($(this).val());
-            }
-         })
-
-		copyText(saledatestart,saledateend,salesPrice,weekArr);
+		if($('#salesPrice').val() != ''){
+			//判断是否有输入日期
+			var saledatestart = $('#saledatestart').val();
+			var saledateend = $('#saledateend').val();
+			var salesPrice = $('.salesPrice').val();
+	        var weekArr = [];
+	//      获取星期
+	    	 $.each($('input[name=week]:checkbox'),function(){
+	    	 	
+	            if(this.checked){
+	              weekArr.push($(this).val());
+	            }
+	         })
+	
+			copyText(saledatestart,saledateend,salesPrice,weekArr);
+		}
 		
 	})
 })
@@ -121,9 +123,17 @@ function copyText(saledatestart,saledateend,salesPrice,weekArr){
 	 var eventArrs = getDatediff(saledatestart,saledateend,weekArr);
 	 
 	 $.each(eventArrs,function(i,o){
-	 	o.salesPrice = salesPrice;
+	 	if($.inArray(String(o.week),weekArr) == -1){
+	 		console.log(o.week);
+	 	}else{
+	 		o.salesPrice = salesPrice;
+	 	}
 	 });
-	 
+	$('#calendar').fullCalendar('removeEventSource', {
+      events: eventArrs,
+      color: '#fff',    
+      textColor: '#000'
+    }); 
 	var events = $('#calendar').fullCalendar('addEventSource', 
 	  {
 	      events: eventArrs,
@@ -141,6 +151,7 @@ function copyText(saledatestart,saledateend,salesPrice,weekArr){
 * @returns [Array] 返回相差天数
 */
 var eventArr=[];
+var dateArr=[];
 function getDatediff(sDate1,sDate2,weekArr){
 	
 	var start = Date.parse(new Date(sDate1));
@@ -153,10 +164,21 @@ function getDatediff(sDate1,sDate2,weekArr){
 	var startweek = date.getDay();
 	
 //	起始星期
+	
 	$.each(weekArr,function(i,o){
-	  if(startweek==o||o=='all'){
-		eventArr.push({"start":sDate1});
+		if(eventArr.length == 0){
+			eventArr.push({"start":sDate1,"week":startweek});
+			dateArr.push(sDate1);
 		}
+	  if(startweek==o||o=='all'){
+	  	//for(let j=0;j<eventArr.length;j++){
+	  		if(eventArr[0]['start'] != sDate1){
+	  			eventArr.push({"start":sDate1,"week":startweek});
+	  			dateArr.push(sDate1);
+	  			//break; 
+	  		}
+	  	//}
+	  }
 	})
 	
 //	结束星期
@@ -165,14 +187,17 @@ function getDatediff(sDate1,sDate2,weekArr){
 		var afterday = date.setDate(date.getDate() + 1);
 		var afterweek =date.getDay();
 
-		$.each(weekArr,function(i,o){
+		$.each(weekArr,function(k,o){
 			if(afterweek==o||o=='all'){
 				var month = parseInt(date.getMonth()) + 1;
 				month = month>9?month : '0'+month;
 				var day = date.getDate();
 				day = day>9 ? day:'0'+day;
 				enddate = date.getFullYear() + '-'+ month + '-'+ day;
-				eventArr.push({"start":enddate});
+				if($.inArray(enddate,dateArr) == -1){
+					dateArr.push(enddate);
+					eventArr.push({"start":enddate,"week":afterweek});
+				}
 			}
 		});
 	}
