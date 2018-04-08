@@ -147,7 +147,7 @@ select{
 }
 
 
-.tables{width: 90%;overflow: auto;height: auto;}
+.tables{width: 70%;overflow: auto;height: auto;}
 .tables table{width: 100%;}
 .tables .chooseimg{
 	width: 100px;height: 70px;
