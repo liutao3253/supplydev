@@ -15,7 +15,7 @@
 	
 	
 	    <!--保存弹框-->
-	    <div id="showmask">
+	    <div id="showmask" style="display: none">
 	    	<div class="showmask bomb">
 	    		<div class="productchoose clearfix">
 	   				<div class="fl shu"></div>
@@ -36,7 +36,105 @@
 	    	</div>
 	    </div>
 	    
+	    <!--录入代理信息-->
 	    
+	    <div id="showmask" style="display: none;">
+	    	<div class="showmask" style="width: 500px;">
+	    		<div class="productchoose clearfix">
+	   				<div class="fl shu"></div>
+	   				<div class="fl tit">录入代理信息</div>
+	   			</div>
+	   			
+	   			<div class="content">
+	   				<div class="content_item">
+	   				    <div class="layui-form-item">
+						    <label class="layui-form-label">商品名称</label>
+						    <input type="text" name="title" required="required" class="layui-input" placeholder="测试商品">
+						</div>
+						<div class="layui-form-item">
+						    <label class="layui-form-label">票种</label>
+						    <input type="text" name="title" required="required" class="layui-input" placeholder="活动票">
+						</div>
+						<div class="layui-form-item">
+						    <label class="layui-form-label"><span>*</span>一级代理商佣金</label>
+						    <input type="text" name="title" required="required" class="layui-input" placeholder="请输入0-100之间的佣金比例">
+						    <span>%</span>
+						</div>
+						<div class="layui-form-item">
+						    <label class="layui-form-label"><span>*</span>二级代理商佣金</label>
+						    <input type="text" name="title" required="required" class="layui-input" placeholder="请输入0-100之间的佣金比例">
+						    <span>%</span>
+						</div>
+						<div class="layui-form-item">
+						    <label class="layui-form-label"><span>*</span>三级代理商佣金</label>
+						    <input type="text" name="title" required="required" class="layui-input" placeholder="请输入0-100之间的佣金比例">
+						    <span>%</span>
+						</div>
+	   				</div>
+	   				<div class="btn center">
+						<button class="layui-btn cancle" style="margin-right: 40px;">取消</button>
+						<button class="layui-btn sure">确定</button>
+					</div>	
+	   			</div>
+	    	</div>
+	    </div>
+	    
+	    <!--修改代理商-->
+	    <div id="showmask">
+	    	<div class="showmask" style="width: 500px;">
+	    		<div class="productchoose clearfix">
+	   				<div class="fl shu"></div>
+	   				<div class="fl tit">修改代理商</div>
+	   			</div>
+	   			
+	   			<div class="content">
+	   				<div class="content_item">
+	   				    <div class="layui-form-item">
+						    <label class="layui-form-label"><span>*</span>代理商级别</label>
+						    <select name="">
+						    	<option value="" selected="selected">一级代理商</option>
+						    	<option value="">二级代理商</option>
+						    	<option value="">三级代理商</option>
+						    	<option value="">四级代理商</option>
+						    </select>
+						</div>
+						<div class="layui-form-item">
+						    <label class="layui-form-label"><span>*</span>代理商ID</label>
+						    <input type="text" name="title" required="required" class="layui-input">
+						</div>
+						<div class="layui-form-item">
+						    <label class="layui-form-label"><span>*</span>代理商姓名</label>
+						    <input type="text" name="title" required="required" class="layui-input">
+						    
+						</div>
+						<div class="layui-form-item">
+						    <label class="layui-form-label"><span>*</span>代理商手机号</label>
+						    <input type="text" name="title" required="required" class="layui-input" placeholder="请输入0-100之间的佣金比例">
+						    
+						</div>
+						<div class="layui-form-item">
+						    <label class="layui-form-label"><span>*</span>代理商身份证</label>
+						    <input type="text" name="title" required="required" class="layui-input" placeholder="请输入0-100之间的佣金比例">
+						   
+						</div>
+						<div class="layui-form-item">
+						    <label class="layui-form-label">代理商邮箱</label>
+						    <input type="text" name="title" class="layui-input" placeholder="请输入0-100之间的佣金比例">
+						  
+						</div>
+						<div class="layui-form-item">
+						    <label class="layui-form-label">启用状态</label>
+						    <input type="checkbox" >
+						    
+						</div>
+	   				</div>
+	   				<div class="btn center">
+						<button class="layui-btn cancle" style="margin-right: 40px;">取消</button>
+						<button class="layui-btn sure">确定</button>
+					</div>	
+	   			</div>
+	    	</div>
+	    </div>
 	    
 	    
 	</body>

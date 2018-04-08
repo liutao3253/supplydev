@@ -32,6 +32,14 @@
     </div>
     
     <div class="x-body clearfix">
+    	<div class="fl">
+    		<h3>创建产品时，可以通过以下三种方式添加景区信息</h3>
+    		<div>
+    			<p>1.完全自己手动添加信息</p>
+    		  <p>2.通过<span style="color: #0088CC;" id="create">[模板新建景区]</span>选择模板后可修改景区信息</p>
+    		  <p>3.直接<span style="color: #0088CC;" id="quote">[引用已有景区]</span>信息，但信息不可修改</p>
+    		</div>
+    	</div>
 			<div class="operate fr">
 				<span><img src="" alt="" />返回</span>
 				<span style="font-size: 20px;">|</span>
@@ -329,7 +337,75 @@
 			  </div>
 			</div>
 
+		   	<!--弹框-->
+    <div id="showmask" style="display: none;">	
+   
+      <div class="showmask" class="create">
+   			<div class="productchoose clearfix">
+   				<div class="fl shu"></div>
+   				<div class="fl tit">由模板创建新景区</div>
+   			</div>
+   			<div class="content">
+   				<div class="" >
+   					<div>提示：根据您要录入的景区，确定后选完模板，比如您要录入故宫博物院，浏览后，点击选为模板，如您要录入的信息不在列表中，可以在列表中选择一个喜欢的模板，然后在录入界面进行修改</div>
+		        <input type="text" class="layui-input" placeholder="产品ID/产品名称">
+ 				    <button class="layui-btn search">搜索</button>
+ 				  </div>
+ 				  
+   				<div class="tables">
+   				  <table style="width: 100%;">
+					      <tr>
+					        <th style="width: 30%;">景区名称</th>
+					        <th style="width: 30%;">景区地址</th>
+					        <th style="width: 30%;">数据来源</th>
+					      </tr> 
+					      <tr>
+					        <td>贤心</td>
+					        <td>汉族</td>
+					        <td>系统数据</td>
+					      </tr>
+					     <tr>
+					        <td>贤心</td>
+					        <td>汉族</td>
+					        <td>系统数据</td>
+					      </tr>
+					      <tr>
+					        <td>贤心</td>
+					        <td>汉族</td>
+					        <td>系统数据</td>
+					      </tr>
+					      <tr>
+					        <td>贤心</td>
+					        <td>汉族</td>
+					        <td>系统数据</td>
+					      </tr>
+					      <tr>
+					        <td>贤心</td>
+					        <td>汉族</td>
+					        <td>系统数据</td>
+					      </tr>
+					      <tr>
+					        <td>贤心</td>
+					        <td>汉族</td>
+					        <td>系统数据</td>
+					      </tr>
+					      <tr>
+					        <td>贤心</td>
+					        <td>汉族</td>
+					        <td>系统数据</td>
+					      </tr>
+					  </table>
 
+   				</div>
+   			
+   			  
+   			</div>
+   			<div style="margin: 20px 0;" class="center">
+   			  	<button class="layui-btn cancle" >取消</button>
+   				  <button class="layui-btn sure">确定</button>
+   			  </div>
+   	</div>
+  </div>
   </body>
 	<script type="text/template" id="tpl">
 		<%{%>

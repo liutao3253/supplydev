@@ -1,4 +1,25 @@
 $(function(){
+	
+//	模板
+	$('#create').click(function(){
+		$('#showmask').show();
+		$('.cancle').click(function(){
+			$('#showmask').hide();
+		})
+		$('.sure').click(function(){
+			$('#showmask').hide();
+		})
+	})
+	
+	$('#quote').click(function(){
+		$('#showmask').show();
+		$('.cancle').click(function(){
+			$('#showmask').hide();
+		})
+		$('.sure').click(function(){
+			$('#showmask').hide();
+		})
+	})
 
 //	tab页
   	$('.layui-tab-title li').click(function(){

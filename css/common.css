@@ -266,6 +266,23 @@ a{
 	margin-right: 5px;
 }
 
+.showmask .layui-form-item{
+	margin-bottom: 10px;
+}
+.showmask .layui-input{
+	width: 250px;
+	padding: 0 10px;
+}
+.showmask .layui-form-label{
+	width: 120px;
+	display: inline-block;
+	text-align: right;
+	margin-right: 10px;
+}
+.showmask .layui-form-label span{
+	color: red;
+	margin-right: 5px;
+}
 
 .showmask .content .content_item{
 	width: 90%;
