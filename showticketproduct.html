@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+    <meta charset="UTF-8">
+    <title>欢迎页面-X-admin2.0</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/easyui.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/fullcalendar.css" />
+    <link rel="stylesheet" href="./css/showticketproduct.css">
+    
+    <script type="text/javascript" src="./js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="./js/showticketproduct.js"></script>
+  </head>
+  
+  <body>
+    <div class="x-nav">
+      <span class="layui-breadcrumb">
+        <a href="">商品管理</a>
+        <a href="ticketgoods.html">门票产品</a>
+        <a><cite>添加新产品</cite></a>
+      </span>
+    </div>
+    
+    <div class="x-body clearfix">   	
+			<div class="operate fr">
+				<span><img src="" alt="" />返回</span>
+				<span style="font-size: 20px;">|</span>
+				<span><img src="" alt="" />查看商品</span>	
+				<span style="font-size: 20px;">|</span>
+				<span><img src="" alt="" />预览</span>
+				<button class="layui-btn layui-btn-small save">保存</button>
+				<button class="layui-btn layui-btn-small submit">提交</button>
+				
+			</div>
+		</div>
+				
+			<!--tab页-->
+			<div class="layui-tab">
+			  <ul class="layui-tab-title">
+			    <li class="layui-this">基本信息</li>
+			    <li>详细信息</li>				    	
+			  </ul>
+			  <div class="layui-tab-content">
+			  	
+			  		
+			  	<!--基本信息-->
+			    <div class="layui-tab-item  layui-show" data-index="0">
+			    	<!--<form class="layui-form" action="">-->
+
+						  <div class="layui-form-item">
+						    <label class="layui-form-label"><span>*</span>景区名称</label>
+						    <input type="text" name="title" required="required" class="layui-input" placeholder="北京" readonly="readonly">
+						  </div>
+						  
+						  <div class="layui-form-item">
+						    <div class="layui-inline">
+						      <label class="layui-form-label"><span>*</span>景区地址</label>
+						      <input type="text" required="required" class="layui-input" placeholder="北京" readonly="readonly"/>
+						      <input type="text" required="required" class="layui-input" placeholder="海淀" readonly="readonly"/>
+						      <input type="text" required="required" class="layui-input" placeholder="西二旗" readonly="readonly"/>
+						    </div>
+						  </div>
+						  
+              <div class="layui-form-item">
+						    <label class="layui-form-label"><span>*</span>营业时间</label>
+						    <div class="clearfix addressitem" style="width: 80%;margin-left: 110px;">
+						    	<div class="address">
+							    	<input type="text" required="required" readonly="readonly" placeholder="08:00"><span>-</span>
+							    	<input type="text" required="required" readonly="readonly" placeholder="12:00">
+							    	<input type="text" required="required" readonly="readonly" placeholder="旺季(03月08日-05月03日)">
+							    </div>
+							    <div class="address">
+							    	<input type="text" required="required" readonly="readonly" placeholder="08:00"><span>-</span>
+							    	<input type="text" required="required" readonly="readonly" placeholder="12:00">
+							    	<input type="text" required="required" readonly="readonly" placeholder="旺季(03月08日-05月03日)">
+							    </div>
+						    </div>
+						    
+						  </div>
+						  
+ 							<div class="layui-form-item ">
+						    <div class="layui-inline clearfix" >
+						      <label class="layui-form-label fl"><span>*</span>景区级别</label>
+						      <ul class="travel fl">
+						      	<li class="active">AAAAA</li>
+						      </ul>
+						    </div>
+						  </div>
+						  
+						  <div class="layui-form-item">
+						    <div class="layui-inline" >
+						      <label class="layui-form-label"><span>*</span>景区简介</label>
+						      <textarea name="" rows="5" cols="100" readonly="readonly"></textarea>
+						    </div>
+						  </div>
+						  
+						  <div class="layui-form-item">
+						    <label class="layui-form-label"><span>*</span>产品名称</label>
+						    <input type="text" name="title" required="required" class="layui-input" readonly="readonly">
+						  </div>
+						  
+						  <div class="layui-form-item clearfix">
+						    <label class="layui-form-label "><span>*</span>产品图片</label>
+						    <div class="fl " style="width: 80%;">						    	
+							    <ul class="addimg product">
+							    	<li>
+											<div class="myBtn">
+												<img src="./images/update.png" alt="" class="addimgs" />
+												<div class="figure">主图</div>
+											</div>
+							    	</li>
+							    	<li>
+											<div class="myBtn">
+												<img src="./images/update.png" alt="" class="addimgs" />
+												<div class="figure">主图</div>
+											</div>
+							    	</li>
+							    	<li>
+											<div class="myBtn">
+												<img src="./images/update.png" alt="" class="addimgs" />
+												<div class="figure">主图</div>
+											</div>
+							    	</li>
+							    	<li>
+											<div class="myBtn">
+												<img src="./images/update.png" alt="" class="addimgs" />
+												<div class="figure">主图</div>
+											</div>
+							    	</li>
+							    	<li>
+											<div class="myBtn">
+												<img src="./images/update.png" alt="" class="addimgs" />
+												<div class="figure">主图</div>
+											</div>
+							    	</li>
+							    </ul>	
+						    </div>
+						    		    
+						  </div>
+						 
+						  <div class="layui-form-item">
+						    <label class="layui-form-label"><span>*</span>产品简介</label>
+						    <textarea name="" rows="5" cols="100" readonly="readonly"></textarea>
+						  </div>
+ 					
+ 							<div class="layui-form-item clearfix">
+						    <label class="layui-form-label fl">服务保障</label>
+					    	<div class="fl" style="margin-top: 10px;">
+					    		<span>保证入园</span><span>/快速入园</span>
+					    	</div>
+						  </div>
+ 					
+ 						  <div class="layui-form-item clearfix">
+						    <label class="layui-form-label"><span>*</span>主题标签</label>
+					    	<div class="choosetheme fl" style="margin-top: 5px;">
+					    		<span>主题乐园</span>/
+					    		<span>亲子游</span>/
+					    		<span>动植物园</span>/
+					    		<span>博物馆</span>	/						  	
+									<span>古迹遗址</span>/
+									<span>团队拓展</span>/
+									<span>宗教祈福</span>/
+									<span>主题乐园</span>/
+									<span>亲子游</span>/
+									<span>动植物园</span>/
+									<span>博物馆</span>/
+								  <span>古迹遗址</span>/		
+								  <span>主题乐园</span>/
+					    		<span>亲子游</span>/
+					    		<span>动植物园</span>/
+					    		<span>博物馆</span>	/						  	
+									<span>古迹遗址</span>/
+									<span>团队拓展</span>/
+									<span>宗教祈福</span>/
+									<span>主题乐园</span>/
+									<span>亲子游</span>/
+									<span>动植物园</span>/
+									<span>博物馆</span>/
+								  <span>古迹遗址</span>/		
+						  	</div>
+						  </div>
+ 
+
+			    	<!--</form>-->
+			    	<div class="layui-form-item center">
+						  <button class="layui-btn next_btn" >下一页</button>						      
+						</div>
+						
+			    </div>
+			  
+			  	<!--详细信息-->
+			  	<div class="layui-tab-item" data-index="1">
+			  		<!--<form action="" class="layui-form">-->
+			  			
+			  			<div class="layui-form-item clearfix">
+						    <label class="layui-form-label"><span>*</span>亮点特色</label>
+						    <textarea name="" rows="5" cols="100"readonly="readonly"></textarea>
+						  </div>
+						 
+						  <div class="layui-form-item clearfix">
+						    <label class="layui-form-label"><span>*</span>免费政策</label>
+					    	<div class="choosetheme fl"style="margin-top: 5px;">
+					    		<span>保证入园</span>/<span>快速入园</span>						  
+						  	</div>
+						  </div>
+
+							<div class="layui-form-item clearfix">
+						    <label class="layui-form-label"><span>*</span>优惠人群</label>
+					    	<div class="choosetheme fl" style="margin-top: 5px;">
+							  	<span>主题乐园</span>/
+					    		<span>亲子游</span>/
+					    		<span>动植物园</span>/
+					    		<span>博物馆</span>	/						  	
+									<span>古迹遗址</span>/
+									<span>团队拓展</span>/
+									<span>宗教祈福</span>/
+									<span>主题乐园</span>/
+									<span>亲子游</span>/
+									<span>动植物园</span>/
+									<span>博物馆</span>/
+								  <span>古迹遗址</span>/		
+								  <span>主题乐园</span>/
+					    		<span>亲子游</span>/
+					    		<span>动植物园</span>/
+					    		<span>博物馆</span>	/						  	
+									<span>古迹遗址</span>/
+									<span>团队拓展</span>/
+									<span>宗教祈福</span>/
+									<span>主题乐园</span>/
+									<span>亲子游</span>/
+									<span>动植物园</span>/
+									<span>博物馆</span>/
+								  <span>古迹遗址</span>/	
+						  	</div>
+
+						  </div>
+						  
+						  <div class="layui-form-item clearfix">
+						    <label class="layui-form-label"><span>*</span>重要说明</label>
+						    <textarea name="" rows="5" cols="100" readonly="readonly"></textarea>
+						  </div>
+						  
+						  <div class="layui-form-item clearfix">
+						    <label class="layui-form-label"><span>*</span>景点信息</label>
+						    <div class="tables">
+						    	<table>
+						    		<tr><th>序号</th>
+						    		<th>景点名称</th>
+						    		<th>景点介绍</th>
+						    		<th>景点图片</th>
+						       </tr>
+						    		
+						    		<tr class="item"><td style="width: 50px;">1</td>
+						    		<td><input type="text" readonly="readonly"/></td>
+						    		<td><textarea name="" rows="5" cols="40"style="line-height: 20px;width: 90%;" readonly="readonly"></textarea></td>
+						    		<td style="width: 80px;">						    			
+						    			<div class="chooseimg">
+						    				<img src="./images/update.png" alt="" />
+						    			</div>
+						    		</td>
+						    	</table>						    	
+						    </div>
+						  </div>
+						
+
+			  		<!--</form>-->
+			  		
+			  		<div class="layui-form-item center">
+			  			 <button class="layui-btn prev_btn">上一页</button>			  			
+			  		</div>
+			  	</div>
+			  </div>
+			</div>
+  </body>
+</html>
