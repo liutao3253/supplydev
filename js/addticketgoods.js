@@ -78,15 +78,10 @@ $(function(){
 	});
 
 	$("#btnBatch").click(function(){
-		//		判断是否有输入日期
+		//判断是否有输入日期
 		var saledatestart = $('#saledatestart').val();
 		var saledateend = $('#saledateend').val();
-		
-//		按份
-		var salesPrice = $('#severalitem .salesPrice').val();
-		var setPrice = $('#severalitem .setPrice').val();
-		var stock = $('#severalitem .stock').val();
-
+		var salesPrice = $('.salesPrice').val();
         var weekArr = [];
 //      获取星期
     	 $.each($('input[name=week]:checkbox'),function(){
@@ -96,38 +91,29 @@ $(function(){
             }
          })
 
-		copyText(saledatestart,saledateend,salesPrice,setPrice,stock,weekArr);
+		copyText(saledatestart,saledateend,salesPrice,weekArr);
 		
 	})
 })
 
- function getEvents(start,end){
-	var eventArr=[{"start":"2018-03-01 00:00:00","title":"0|20.0|18.0|2018-3-29"},
-    {"start":"2018-03-02 00:00:00","title":"0|20.0|18.0|2018-3-30"},
-	{"start":"2018-03-03 00:00:00","title":"0|20.0|18.0|2018-3-31"}
-	];
-	if(end>3)
-	{
-		eventArr.push({"start":"2018-04-01 00:00:00","title":"0|20.0|18.0|2018-3-29"});
-	}
-	return eventArr;
-} 
 //动态修改数据
 function getValue(p){
-	var salesPrice = $(p).val();
-	var id = $(p).attr('id');
-//	var index = $(p).parent().attr('index');
+	var salesPrice =$(p).val() ;
+//	var id = $(p).attr('id');console.log(id)
+	var index = $(p).parent().attr('index');
 //	var salesPrice;
 //	
-	if(id=='salesPrice'){
-		salesPrice = $(p).val();
-	}
+//	if(id=='salesPrice'){
+//		salesPrice = $(p).val();
+//	}
 //	
 	$.each(eventArr,function(i,o){
-		if(salesPrice){o.salesPrice=salesPrice;}
+		if(o.start==index){
+			if(salesPrice){o.salesPrice=salesPrice;}
+		}
 
 	})
-//	console.log(salesPrice,index,eventArr);
+	console.log(salesPrice,eventArr);
 }
 //批量插入数据
 function copyText(saledatestart,saledateend,salesPrice,weekArr){
