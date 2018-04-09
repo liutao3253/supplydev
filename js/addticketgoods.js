@@ -9,11 +9,16 @@ $(function(){
 	})
   
 //	tab页
-  	$('.layui-tab-title li').click(function(){
+    var isloaded = false;
+  	$('.layui-tab-title li').click(function(){	
   		$(this).addClass('layui-this').siblings().removeClass('layui-this');
   		var index = $(this).index();
   		$('.layui-tab-content .layui-tab-item:eq('+index+')').addClass('layui-show').siblings().removeClass('layui-show')
-  	
+	  	
+//	  	if(isloaded){
+  			$("#calendar").fullCalendar('render'); 
+//			isloaded=true;
+//		}
   	});
   	
 //	上下页切换
@@ -26,12 +31,16 @@ $(function(){
 	});
 	
 //	下一页
-	$('.next_btn').click(function(){
+	$('.next_btn').click(function(){        
 		var parent = $(this).parent().parent();
 		parent.next().addClass('layui-show').siblings().removeClass('layui-show');
 		var index = parseInt(parent.attr('data-index'))+1;
 	    $('.layui-tab-title li:eq('+index+')').addClass('layui-this').siblings().removeClass('layui-this');
 	
+//		if(!isloaded){
+			$("#calendar").fullCalendar('render');  
+//			isloaded=true;
+//		} 
 //		validselfEvent();
 		
 	});

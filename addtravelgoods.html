@@ -55,7 +55,7 @@
 			  
 			<div class="layui-tab-content">
 			  	<!--基本信息-->
-			    <div class="layui-tab-item " data-index="0">
+			    <div class="layui-tab-item layui-show" data-index="0">
 			    	<form class="layui-form" action="">
 
 						  <div class="layui-form-item">
@@ -164,7 +164,7 @@
 
 			  	
 			  	<!--团期/价格-->
-			  	<div class="layui-tab-item layui-show"  data-index="1">
+			  	<div class="layui-tab-item "  data-index="1">
 			  		<form action="" class="layui-form">
 
 						  <div class="layui-form-item">
@@ -175,7 +175,7 @@
 
 							<div class="row">
 								<div class="layui-form-item">
-							    <label class="layui-form-label" style="width: 70px;"><span>*</span>起止日期</label>
+							    <label class="layui-form-label" style="width: 110px;"><span>*</span>起止日期</label>
 							    <input type="text" name="price_min" class="layui-input" id="saledatestart">
 							  	<span>-</span>
 							  	<input type="text" name="price_min" class="layui-input" id="saledateend">
@@ -192,24 +192,25 @@
 								</div>
 							  
 							  <div class="layui-form-item">
+							  	<!--按份-->
 							  	<div class="severalitem">
 										<ul class="price" id="severalitem">
 							  			<li><span>销售价</span><input type="text" class="layui-input salesPrice"/></li>
-							  			<li><span>结算价</span><input type="text" class="layui-input setPrice" /></li>
-							  			<li><span>库存</span><input type="text"class="layui-input stock" /></li>
+							  			<li><span>结算价</span><input type="text" class="layui-input setPrice"/></li>
+							  			<li><span>库存</span><input type="text"class="layui-input stock"/></li>
 							  	</ul>
 									</div>
-							  	
+							  	<!--按人-->
 									<div class="accordingitem">
-										<ul class="price">
-							  			<li><span>成人价</span><input type="text" class="layui-input"/></li>
-							  			<li><span>成人结算价</span><input type="text" class="layui-input" /></li>
-							  			<li><span>库存</span><input type="text"class="layui-input" /></li>
+										<ul class="price" id="accordingitem">
+							  			<li><span>成人价</span><input type="text" class="layui-input manPrice"/></li>
+							  			<li><span>成人结算价</span><input type="text" class="layui-input manSettlement " /></li>
+							  			<li><span>库存</span><input type="text"class="layui-input manStock" /></li>
 							  		</ul>
 							  		<ul class="price">
-							  			<li><span>儿童价</span><input type="text"class="layui-input" /></li>
-							  			<li><span>儿童结算价</span><input type="text" class="layui-input"/></li>
-							  			<li><span>库存</span><input type="text" class="layui-input"/></li>
+							  			<li><span>儿童价</span><input type="text"class="layui-input childPrice" /></li>
+							  			<li><span>儿童结算价</span><input type="text" class="layui-input childSettlement"/></li>
+							  			<li><span>库存</span><input type="text" class="layui-input childStock"/></li>
 							  		</ul>
 							  		<ul class="price">
 							  			<li><span>单房差</span><input type="text"class="layui-input" /></li>
@@ -292,7 +293,7 @@
    
    
    	<!--弹框-->
-   <div id="showmask">	
+   <div id="showmask" style="display: none;">	
    
       <div class="showmask" >
    			<div class="productchoose clearfix">

@@ -14,6 +14,7 @@ $(function(){
   		var index = $(this).index();
   		$('.layui-tab-content .layui-tab-item:eq('+index+')').addClass('layui-show').siblings().removeClass('layui-show')
   		showPrice();
+  		$("#calendar").fullCalendar('render'); 
   	});
   	
 //	上下页切换
@@ -24,7 +25,7 @@ $(function(){
 	    var index = parseInt(parent.attr('data-index'))-1;
 	    $('.layui-tab-title li:eq('+index+')').addClass('layui-this').siblings().removeClass('layui-this');
 		showPrice();
-
+		 
 	});
 	
 //	下一页
@@ -34,6 +35,7 @@ $(function(){
 		var index = parseInt(parent.attr('data-index'))+1;
 	    $('.layui-tab-title li:eq('+index+')').addClass('layui-this').siblings().removeClass('layui-this');
 		showPrice();
+		$("#calendar").fullCalendar('render');
 	});
 	
 	
@@ -90,16 +92,36 @@ $(function(){
 		 
 		},
 		eventRender: function (event, element) {
+			console.log(localStorage.several)
 			var inputs = '';
-			inputs +='销售价<input type="" name="" id="salesPrice" value="" onChange="getValue(this)"/>';
-			inputs +='结算价<input type="" name="" id="setPrice" value="" onChange="getValue(this)" />';
-			inputs +='库存<input type="" name="" id="stock" value="" onChange="getValue(this)"/>';
-            element.html(inputs);
-            element.attr('index',event.start._i);
-            element.children('input#salesPrice').val(event.salesPrice);
-            element.children('input#setPrice').val(event.setPrice);
-            element.children('input#stock').val(event.stock);
+//			按份
+			if(localStorage.several){
+				inputs +='销售价<input type="" name="" id="salesPrice" value="" onChange="getValue(this)"/>';
+				inputs +='结算价<input type="" name="" id="setPrice" value="" onChange="getValue(this)" />';
+				inputs +='库存<input type="" name="" id="stock" value="" onChange="getValue(this)"/>';
+	            element.html(inputs);
+	            element.attr('index',event.start._i);
+	            element.children('input#salesPrice').val(event.salesPrice);
+	            element.children('input#setPrice').val(event.setPrice);
+	            element.children('input#stock').val(event.stock);
             
+			}else if(localStorage.according){
+				inputs +='成人价<input type="" name="" id="manPrice" value="" onChange="getValue(this)"/>';
+				inputs +='成人结算价<input type="" name="" id="manSettlement" value="" onChange="getValue(this)" />';
+				inputs +='库存<input type="" name="" id="manStock" value="" onChange="getValue(this)"/>';
+				inputs +='儿童价<input type="" name="" id="childPrice" value="" onChange="getValue(this)"/>';
+				inputs +='儿童结算价<input type="" name="" id="childSettlement" value="" onChange="getValue(this)" />';
+				inputs +='库存<input type="" name="" id="childStock" value="" onChange="getValue(this)"/>';
+	            element.html(inputs);
+	            element.attr('index',event.start._i);
+	            element.children('input#manPrice').val(event.manPrice);
+	            element.children('input#manSettlement').val(event.manSettlement);
+	            element.children('input#manStock').val(event.manStock);
+	            element.children('input#childPrice').val(event.childPrice);
+	            element.children('input#childSettlement').val(event.childSettlement);
+	            element.children('input#childStock').val(event.childStock);
+			}
+			
 		},
 
 	});
@@ -116,6 +138,15 @@ $(function(){
 		var salesPrice = $('#severalitem .salesPrice').val();
 		var setPrice = $('#severalitem .setPrice').val();
 		var stock = $('#severalitem .stock').val();
+	  	
+//	  	按人
+	  	var manPrice = $('#accordingitem .manPrice').val();
+		var manSettlement = $('#accordingitem .manSettlement').val();
+		var manStock = $('#accordingitem .manStock').val(); 
+        var childPrice = $('#accordingitem .childPrice').val();
+		var childSettlement = $('#accordingitem .childSettlement').val();
+		var childStock = $('#accordingitem .childStock').val(); 
+
 
         var weekArr = [];
 //      获取星期
@@ -125,8 +156,13 @@ $(function(){
               weekArr.push($(this).val());
             }
          })
-
-		copyText(saledatestart,saledateend,salesPrice,setPrice,stock,weekArr);
+		
+		if(localStorage.several){
+			copySeveral(saledatestart,saledateend,salesPrice,setPrice,stock,weekArr);
+		}else if(localStorage.according){
+			copyAccord(saledatestart,saledateend,manPrice,manSettlement,manStock,childPrice,childSettlement,childStock,weekArr);
+		}
+		
 		
 	})
 	
@@ -136,22 +172,60 @@ $(function(){
 function getValue(p){
 	var id = $(p).attr('id');
 	var index = $(p).parent().attr('index');
-	var salesPrice,setPrice,stock;
+	var salesPrice,setPrice,stock,manPrice,manSettlement,manStock,childPrice,childSettlement,childStock;
 	
-	if(id=='salesPrice'){
-		salesPrice = $(p).val();
-	}else if(id=='setPrice'){
-		setPrice = $(p).val();
-	}else if(id=='stock'){
-		stock = $(p).val();
+	switch(id){
+		case 'salesPrice':
+		  salesPrice = $(p).val();
+		  break;
+		case 'setPrice':
+		  setPrice = $(p).val();
+		  break;
+		case 'stock':
+		  stock = $(p).val();
+		  break;
+		case 'manPrice':
+		  manPrice = $(p).val();
+		  break;
+		case 'manSettlement':
+		  manSettlement = $(p).val();
+		  break;
+		case 'childPrice':
+		  childPrice = $(p).val();
+		  break;
+		case 'childStock':
+		  childStock = $(p).val();
+		  break;
+		case 'childSettlement':
+		  childSettlement = $(p).val();
+		  break;
+		case 'manPrice':
+		  manPrice = $(p).val();
+		  break;
+		case 'manStock':
+		  manStock = $(p).val();
+		  break;
+		
 	}
+//	if(id=='salesPrice'){
+//		salesPrice = $(p).val();
+//	}else if(id=='setPrice'){
+//		setPrice = $(p).val();
+//	}else if(id=='stock'){
+//		stock = $(p).val();
+//	}
 	
 	$.each(eventArr,function(i,o){
 		if(o.start==index){
 			if(salesPrice){o.salesPrice=salesPrice;}
 			if(setPrice){o.setPrice=setPrice;}
 			if(stock){o.stock=stock;}
-			
+			if(manPrice){o.manPrice = manPrice;}
+			if(manSettlement){o.manSettlement = manSettlement;}
+			if(manStock){o.manStock = manStock;}
+			if(childPrice){o.childPrice = childPrice;}
+			if(childSettlement){o.childSettlement = childSettlement;}
+			if(childStock){o.childStock = childStock;}
 		}
 	})
 	console.log(salesPrice,setPrice,stock,index,eventArr);
@@ -184,17 +258,58 @@ function showPrice(){
 		}
 }
 
-//批量插入数据
-function copyText(saledatestart,saledateend,salesPrice,setPrice,stock,weekArr){
+//批量插入数据 按份
+function copySeveral(saledatestart,saledateend,salesPrice,setPrice,stock,weekArr){
 	//计算日期差时
 	 var eventArrs = getDatediff(saledatestart,saledateend,weekArr);
 	 
 	 $.each(eventArrs,function(i,o){
-	 	o.salesPrice = salesPrice;
-	 	o.setPrice = setPrice;
-	 	o.stock = stock;
+	 	if($.inArray(String(o.week),weekArr) == -1){
+	 		console.log(o.week);
+	 	}else{
+ 			o.salesPrice = salesPrice;
+		 	o.setPrice = setPrice;
+		 	o.stock = stock;
+	 	}
+	 	
 	 });
+	$('#calendar').fullCalendar('removeEventSource', {
+      events: eventArrs,
+      color: '#fff',    
+      textColor: '#000'
+    }); 
+	var events = $('#calendar').fullCalendar('addEventSource', 
+	  {
+	      events: eventArrs,
+	      color: '#fff',     // an option!
+	      textColor: '#000' // an option!
+	    }
+	 );
+      
+}
+//批量插入数据 按人
+function copyAccord(saledatestart,saledateend,manPrice,manSettlement,manStock,childPrice,childSettlement,childStock,weekArr){
+	//计算日期差时
+	 var eventArrs = getDatediff(saledatestart,saledateend,weekArr);
 	 
+	 $.each(eventArrs,function(i,o){
+	 	if($.inArray(String(o.week),weekArr) == -1){
+	 		console.log(o.week);
+	 	}else{
+ 			o.manPrice = manPrice;
+ 			o.manSettlement = manSettlement;
+ 			o.manStock = manStock;
+ 			o.childPrice = childPrice;
+ 			o.childSettlement = childSettlement;
+ 			o.childStock = childStock;
+	 	}
+	 	
+	 });
+	$('#calendar').fullCalendar('removeEventSource', {
+      events: eventArrs,
+      color: '#fff',    
+      textColor: '#000'
+    }); 
 	var events = $('#calendar').fullCalendar('addEventSource', 
 	  {
 	      events: eventArrs,
@@ -212,6 +327,7 @@ function copyText(saledatestart,saledateend,salesPrice,setPrice,stock,weekArr){
 * @returns [Array] 返回相差天数
 */
 var eventArr=[];
+var dateArr=[];
 function getDatediff(sDate1,sDate2,weekArr){
 	
 	var start = Date.parse(new Date(sDate1));
@@ -225,9 +341,17 @@ function getDatediff(sDate1,sDate2,weekArr){
 	
 //	起始星期
 	$.each(weekArr,function(i,o){
-	  if(startweek==o||o=='all'){
-		eventArr.push({"start":sDate1});
+		if(eventArr.length == 0){
+			eventArr.push({"start":sDate1,"week":startweek});
+			dateArr.push(sDate1);
 		}
+	  if(startweek==o||o=='all'){
+		if(eventArr[0]['start'] != sDate1){
+  			eventArr.push({"start":sDate1,"week":startweek});
+  			dateArr.push(sDate1);
+  			//break; 
+  		    }
+	    }
 	})
 	
 //	结束星期
@@ -243,7 +367,10 @@ function getDatediff(sDate1,sDate2,weekArr){
 				var day = date.getDate();
 				day = day>9 ? day:'0'+day;
 				enddate = date.getFullYear() + '-'+ month + '-'+ day;
-				eventArr.push({"start":enddate});
+				if($.inArray(enddate,dateArr) == -1){
+					dateArr.push(enddate);
+					eventArr.push({"start":enddate,"week":afterweek});
+				}
 			}
 		});
 	}

@@ -99,3 +99,4 @@ select{
 .messlist{padding: 0;}
 .messlist li input{margin-left: 20px;}
 .accordingitem{display: none;}
+.ui-widget-content{height: 260px;}
