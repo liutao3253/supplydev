@@ -1,0 +1,45 @@
+.x-body{
+	padding-left: 15px;
+}
+ul{padding: 0;}
+.rowitem>li.itemlist{
+	display: inline-block;
+	width: 268px;
+	/*height: 99px;*/
+	border-radius: 5px;
+	color: #fff;
+	font-size: 16px;
+	padding: 15px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	margin-right: 20px;
+}
+.rowitem>li.itemlist .order:before{
+	content: '';
+	display: inline-block;
+	width: 8px;
+	height: 8px;
+	border-radius: 3px;
+	margin-right: 5px;
+	background: #F9DD1C;
+}
+.rowitem>li.itemlist .items{
+	margin-top: 20px;
+	
+}
+.rowitem>li.itemlist .items .money{
+	font-size: 20px;
+}
+.rowitem>li.itemlist .items .operate{
+	border: 1px solid #fff;
+	border-radius: 5px;
+	padding: 3px 10px;
+	font-size: 14px;
+}
+.layui-tab-item{
+	display: none;
+}
+.layui-show{
+	display: block;
+}
