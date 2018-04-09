@@ -6,7 +6,7 @@ var columns = [[
   {field:'operation', width:220, align:'center',title: '操作',formatter: 
 		function(value,row,index){
 			if (row){
-				var message = '<a title="查看"  href="javascript:;"><img src="./images/show.png" alt=""></a>';
+				var message = '<a title="查看"  href="javascript:;"><img src="./images/showproduct.png" alt=""></a>';
 				return message;
 			}
 		}
