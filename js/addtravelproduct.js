@@ -196,7 +196,8 @@ $(function(){
 			html += '	  <div class="layui-form-item" style="position: relative;height: 35px;overflow: hidden;">';
 			html += '		<p class="itemtext">游玩娱乐项目1</p>';
 			html += '		<p class="itemline"></p>';
-			html += '		<span>删除</span>';
+			
+			html += '		<span class="delitem" style="" id="delitem" onclick="removeItem(this)">删除</span>';
 			html += '	</div>';
 								  
 			html += '	<div class="layui-form-item clearfix">';
@@ -248,19 +249,22 @@ $(function(){
 //		for(let i =1 ;i<=len;i++){
 //			$("#daytime").append(html({"index":(i)}));
 //		}
+
+		var lengths;
 		//	添加行程
 		$('.addtravel button').click(function(){
 			var dom = $(this).parent().parent().children('.dayitem');
-			var len = dom.children('.oneday').length+1;
+			lengths = dom.children('.oneday').length+1;
+			
 			
 			var html = '';
 			html+='<div class="oneday">';
   	    	html+='<div class="item">';
 			html+='	  	<div class="layui-form-item" style="position: relative;height: 35px;overflow: hidden;">';
-			html+='		  	<p class="itemtext">游玩娱乐项目'+len+'</p>';
+			html+='		  	<p class="itemtext">游玩娱乐项目'+lengths+'</p>';
 			html+='		  	<p class="itemline"></p>';
-			html+='		  	<span>删除</span>';
-			html+='		 </div>';
+			html+='	    <span class="delitem" style="" id="delitem" onclick="removeItem(this)">删除</span>';
+			html+='	</div>';
 					  
 			html+='	  	<div class="layui-form-item clearfix">';
 			html+='		    <div class="fl">';
@@ -303,6 +307,11 @@ $(function(){
 			
 			dom.append(html);
 			
+			if(len>1){
+				$('.delitem').css('display','block')
+			}else{
+				$('.delitem').css('display','none')
+			}
 //			var html = _.template($("#tpl").html());
 //			dom.append(html({"index":len}));
 		});
@@ -346,4 +355,7 @@ function getObjectURL(file) {
 
 	return url ;
 }
-  
+
+function removeItem(obj){
+	$(obj).parent().parent().remove();
+}

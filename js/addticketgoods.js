@@ -80,9 +80,10 @@ $(function(){
 		},
 		events: function(start, end, timezone, callback)
 		{
-			
-		  	callback();
+			var events = getEvents(start,end);
+		  	callback(events);
 		}
+		
 		
 	});
 	
@@ -215,3 +216,14 @@ function getDatediff(sDate1,sDate2,weekArr){
 	return  eventArr;
 	
 }
+ function getEvents(start,end){
+	var eventArr=[{"start":"2018-03-01 00:00:00","salesPrice":"0|20.0|18.0|2018-3-29"},
+    {"start":"2018-03-02 00:00:00","salesPrice":"0|20.0|18.0|2018-3-30"},
+	{"start":"2018-03-03 00:00:00","salesPrice":"0|20.0|18.0|2018-3-31"}
+	];
+	if(end>3)
+	{
+		eventArr.push({"start":"2018-04-01 00:00:00","salesPrice":"0|20.0|18.0|2018-3-29"});
+	}
+	return eventArr;
+} 

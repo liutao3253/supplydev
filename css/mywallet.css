@@ -43,3 +43,16 @@ ul{padding: 0;}
 .layui-show{
 	display: block;
 }
+.dgs{
+	padding-bottom:40px;
+	width: 100%;
+	border:1px solid #95B8E7;
+	text-align: center;
+}
+
+.datagrid-header th{
+	text-align: center;
+}
+.datagrid-row td{
+	border: 1px dashed #ddd;
+}

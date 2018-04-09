@@ -222,4 +222,15 @@ select{
 }
 .daytime .dayitem{
 	padding-left: 50px;
+	
 }
+.delitem{
+	position: absolute;
+	right:100px;
+	color:#e35043;
+	top: 6px;
+	padding: 0 5px;
+	background: #fff;
+	display: none;
+}
+
