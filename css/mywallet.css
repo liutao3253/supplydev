@@ -56,3 +56,27 @@ ul{padding: 0;}
 .datagrid-row td{
 	border: 1px dashed #ddd;
 }
+
+.paginglist{
+	width: 300px;
+	margin: 0 auto;
+	margin-top: 10px;
+}
+.paginglist li{
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	text-align: center;
+	line-height: 25px;
+}
+.paginglist li.active{
+	background: #139AE8;
+	color: #fff;
+	border-radius: 3px;
+}
+.paginglist li.prevpage,.paginglist li.nextpage{
+	border: 1px solid #139AE8;
+	color: #139AE8;
+	width: 50px;
+	border-radius: 3px;
+}
