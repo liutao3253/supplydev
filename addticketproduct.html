@@ -309,7 +309,7 @@
 						    		
 						    		<tr class="item"><td style="width: 50px;">1</td>
 						    		<td><input type="text" /></td>
-						    		<td><textarea name="" rows="5" cols="40"style="line-height: 20px;"></textarea></td>
+						    		<td><textarea name="1" id="2s" rows="5" cols="40"style="line-height: 20px;"></textarea></td>
 						    		<td>
 						    			<input type = "file" id="myFile" accept="image/*"/>
 						    			<div class="chooseimg">
@@ -406,13 +406,12 @@
    			  </div>
    	</div>
   </div>
-  </body>
 	<script type="text/template" id="tpl">
 		<%{%>
 			<tr class="item">
 				<td style="width: 50px;"><%= index%></td>
 				<td><input type="text" /></td>
-				<td><textarea name="" rows="5" cols="40"style="line-height: 20px;"></textarea></td>
+				<td><textarea name="name<%= index%>" id="<%= index%>" rows="5" cols="40"style="line-height: 20px;"></textarea></td>
 				<td>
 					<input type = "file" id="myFile" accept="image/*"/>
 					<div class="chooseimg">选择图片</div>
@@ -421,5 +420,5 @@
 		</tr>
 		<%}%>
 	</script>
-
+  </body>
 </html>

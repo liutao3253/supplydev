@@ -164,7 +164,7 @@ select{
 }
 
 
-.tables{width: 100%;overflow: auto;height: auto;}
+.tables{width: 62%;overflow: auto;height: auto;}
 .tables table{width: 100%;}
 .tables .chooseimg{
 	width: 100px;height: 70px;
